@@ -35,32 +35,32 @@ function CustomPlantTooltip({ active, payload }: CustomTooltipProps) {
   if (active && payload && payload.length) {
     const item = payload[0].payload;
     return (
-      <div className="bg-white/95 dark:bg-[#0b0f19]/95 backdrop-blur-xl border border-slate-200 dark:border-slate-700/60 rounded-xl shadow-xl p-3.5 text-xs text-slate-800 dark:text-slate-100 min-w-48">
-        <p className="font-bold text-slate-900 dark:text-slate-100 text-xs mb-1.5 pb-1 border-b border-slate-100 dark:border-slate-800">
+      <div className="bg-white/95 backdrop-blur-xl border border-slate-200 rounded-xl shadow-xl p-3.5 text-xs text-slate-800 min-w-48">
+        <p className="font-bold text-slate-900 text-xs mb-1.5 pb-1 border-b border-slate-100">
           {item.name}
         </p>
         <div className="space-y-1.5 text-[11px]">
           <div className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-blue-500" />
-              <span className="text-slate-600 dark:text-slate-400 font-medium">Voluntary:</span>
+              <span className="text-slate-600 font-medium">Voluntary:</span>
             </div>
-            <span className="font-mono font-bold text-blue-600 dark:text-blue-400 tabular-nums">
+            <span className="font-mono font-bold text-blue-600 tabular-nums">
               {item.voluntaryCount || 0}
             </span>
           </div>
           <div className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-slate-400" />
-              <span className="text-slate-600 dark:text-slate-400 font-medium">Involuntary:</span>
+              <span className="text-slate-600 font-medium">Involuntary:</span>
             </div>
-            <span className="font-mono font-bold text-slate-700 dark:text-slate-300 tabular-nums">
+            <span className="font-mono font-bold text-slate-700 tabular-nums">
               {item.involuntaryCount || 0}
             </span>
           </div>
-          <div className="pt-1.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-3 font-semibold">
-            <span className="text-slate-500 dark:text-slate-400">Total Separations:</span>
-            <span className="font-mono text-slate-900 dark:text-white tabular-nums">
+          <div className="pt-1.5 border-t border-slate-100 flex items-center justify-between gap-3 font-semibold">
+            <span className="text-slate-500">Total Separations:</span>
+            <span className="font-mono text-slate-900 tabular-nums">
               {item.count} ({item.percentage}%)
             </span>
           </div>
@@ -78,8 +78,8 @@ export function PlantBarChart({
 }: PlantBarChartProps) {
   if (!data || data.length === 0) {
     return (
-      <div className="bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)]">
-        <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">{title}</h3>
+      <div className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)]">
+        <h3 className="text-sm font-bold text-slate-900">{title}</h3>
         <div className="h-64 flex items-center justify-center text-xs text-slate-400">
           No plant records available.
         </div>
@@ -94,16 +94,16 @@ export function PlantBarChart({
   }));
 
   return (
-    <div className="bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200">
+    <div className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] hover:border-slate-300 transition-all duration-200">
       <div className="mb-3">
-        <h3 className="text-sm font-bold tracking-tight text-slate-900 dark:text-white">{title}</h3>
-        <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{subtitle}</p>
+        <h3 className="text-sm font-bold tracking-tight text-slate-900">{title}</h3>
+        <p className="text-xs text-slate-500 mt-0.5">{subtitle}</p>
       </div>
 
       <div className="h-72 w-full">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={chartData} margin={{ top: 10, right: 15, left: -10, bottom: 5 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" strokeOpacity={0.6} className="dark:stroke-slate-800" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" strokeOpacity={0.6} />
             <XAxis
               dataKey="shortName"
               stroke="#64748b"

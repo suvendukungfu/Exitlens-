@@ -1,49 +1,13 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.never-dark));
+
 @layer base {
-  :root {
-    --background: #f8fafc;
-    --foreground: #090d16;
-    --card: #ffffff;
-    --card-foreground: #090d16;
-    --card-border: #e2e8f0;
-    --muted: #f1f5f9;
-    --muted-foreground: #64748b;
-    --accent: #2563eb;
-    --accent-foreground: #ffffff;
-    --border: #e2e8f0;
-    --input: #e2e8f0;
-    --ring: #3b82f6;
-
-    /* Status Tokens */
-    --status-success-bg: #ecfdf5;
-    --status-success-text: #047857;
-    --status-success-border: #a7f3d0;
-
-    --status-warning-bg: #fffbeb;
-    --status-warning-text: #b45309;
-    --status-warning-border: #fde68a;
-
-    --status-error-bg: #fef2f2;
-    --status-error-text: #b91c1c;
-    --status-error-border: #fecaca;
-
-    --status-info-bg: #eff6ff;
-    --status-info-text: #1d4ed8;
-    --status-info-border: #bfdbfe;
-
-    /* Chart Colors */
-    --chart-1: #2563eb;
-    --chart-2: #0d9488;
-    --chart-3: #f59e0b;
-    --chart-4: #6366f1;
-    --chart-5: #0284c7;
-    --chart-6: #e11d48;
-    --chart-7: #8b5cf6;
-    --chart-8: #10b981;
+  :root, html, body {
+    color-scheme: light !important;
   }
 
-  .dark {
+  :root {
     --background: #f8fafc;
     --foreground: #090d16;
     --card: #ffffff;

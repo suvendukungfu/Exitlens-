@@ -96,13 +96,13 @@ export function RecordsTable({
   return (
     <div className="space-y-3.5">
       {/* Table Toolbar */}
-      <div className="flex flex-wrap items-center justify-between gap-3 bg-white/90 dark:bg-[#0e1422]/90 backdrop-blur-md p-3.5 rounded-xl border border-slate-200/80 dark:border-slate-800/80 text-xs shadow-xs">
+      <div className="flex flex-wrap items-center justify-between gap-3 bg-white/90 backdrop-blur-md p-3.5 rounded-xl border border-slate-200/80 text-xs shadow-xs">
         <div className="flex items-center gap-2 font-medium">
-          <span className="font-bold text-slate-800 dark:text-slate-200 tabular-nums">
+          <span className="font-bold text-slate-800 tabular-nums">
             {records.length}
           </span>
           <span className="text-slate-500">records found</span>
-          <span className="text-slate-300 dark:text-slate-700">•</span>
+          <span className="text-slate-300">•</span>
           <span className="text-slate-500 font-mono">
             Page {currentPage} of {totalPages}
           </span>
@@ -114,8 +114,8 @@ export function RecordsTable({
             onClick={() => setShowEmployeeNames(!showEmployeeNames)}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border transition-all cursor-pointer text-xs font-semibold shadow-2xs active:scale-98 ${
               showEmployeeNames
-                ? 'bg-slate-50 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700'
-                : 'bg-amber-500/10 text-amber-800 dark:text-amber-300 border-amber-500/25'
+                ? 'bg-slate-50 text-slate-700 border-slate-200'
+                : 'bg-amber-500/10 text-amber-800 border-amber-500/25'
             }`}
             title="Toggle masking of employee names"
           >
@@ -135,7 +135,7 @@ export function RecordsTable({
           {/* Export button */}
           <button
             onClick={() => exportExitRecordsToExcel(records)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/80 transition-all cursor-pointer text-xs font-medium shadow-2xs active:scale-98"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-all cursor-pointer text-xs font-medium shadow-2xs active:scale-98"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Export Table</span>
@@ -145,15 +145,15 @@ export function RecordsTable({
           <div className="relative">
             <button
               onClick={() => setShowColumnMenu(!showColumnMenu)}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/80 transition-all cursor-pointer text-xs font-medium shadow-2xs active:scale-98"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-all cursor-pointer text-xs font-medium shadow-2xs active:scale-98"
               title="Toggle Visible Columns"
             >
               <SlidersHorizontal className="w-3.5 h-3.5 text-slate-400" />
               <span>Columns</span>
             </button>
             {showColumnMenu && (
-              <div className="absolute right-0 mt-1.5 w-48 bg-white/95 dark:bg-[#0e1422]/95 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-xl shadow-2xl p-2.5 z-30 space-y-1 text-xs animate-in fade-in duration-100">
-                <label className="flex items-center gap-2 p-1.5 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg cursor-pointer">
+              <div className="absolute right-0 mt-1.5 w-48 bg-white/95 backdrop-blur-xl border border-slate-200 rounded-xl shadow-2xl p-2.5 z-30 space-y-1 text-xs animate-in fade-in duration-100">
+                <label className="flex items-center gap-2 p-1.5 hover:bg-slate-50 rounded-lg cursor-pointer">
                   <input
                     type="checkbox"
                     checked={visibleColumns.designation}
@@ -162,7 +162,7 @@ export function RecordsTable({
                   />
                   <span>Designation</span>
                 </label>
-                <label className="flex items-center gap-2 p-1.5 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg cursor-pointer">
+                <label className="flex items-center gap-2 p-1.5 hover:bg-slate-50 rounded-lg cursor-pointer">
                   <input
                     type="checkbox"
                     checked={visibleColumns.joiningDate}
@@ -171,7 +171,7 @@ export function RecordsTable({
                   />
                   <span>Joining Date</span>
                 </label>
-                <label className="flex items-center gap-2 p-1.5 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg cursor-pointer">
+                <label className="flex items-center gap-2 p-1.5 hover:bg-slate-50 rounded-lg cursor-pointer">
                   <input
                     type="checkbox"
                     checked={visibleColumns.tenure}
@@ -180,7 +180,7 @@ export function RecordsTable({
                   />
                   <span>Tenure</span>
                 </label>
-                <label className="flex items-center gap-2 p-1.5 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg cursor-pointer">
+                <label className="flex items-center gap-2 p-1.5 hover:bg-slate-50 rounded-lg cursor-pointer">
                   <input
                     type="checkbox"
                     checked={visibleColumns.exitType}
@@ -189,7 +189,7 @@ export function RecordsTable({
                   />
                   <span>Exit Type</span>
                 </label>
-                <label className="flex items-center gap-2 p-1.5 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-lg cursor-pointer">
+                <label className="flex items-center gap-2 p-1.5 hover:bg-slate-50 rounded-lg cursor-pointer">
                   <input
                     type="checkbox"
                     checked={visibleColumns.interviewStatus}
@@ -211,7 +211,7 @@ export function RecordsTable({
                 setPageSize(Number(e.target.value));
                 setCurrentPage(1);
               }}
-              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-slate-700 dark:text-slate-300 font-mono text-xs focus:outline-hidden"
+              className="bg-slate-50 border border-slate-200 rounded-lg px-2 py-1 text-slate-700 font-mono text-xs focus:outline-hidden"
             >
               <option value={10}>10</option>
               <option value={15}>15</option>
@@ -223,14 +223,14 @@ export function RecordsTable({
       </div>
 
       {/* Table Container */}
-      <div className="bg-white/90 dark:bg-[#0e1422]/90 backdrop-blur-md border border-slate-200/80 dark:border-slate-800/80 rounded-xl overflow-hidden shadow-xs">
+      <div className="bg-white/90 backdrop-blur-md border border-slate-200/80 rounded-xl overflow-hidden shadow-xs">
         <div className="overflow-x-auto">
           <table className="w-full text-xs text-left border-collapse">
-            <thead className="bg-slate-50/80 dark:bg-slate-900/80 border-b border-slate-200/80 dark:border-slate-800/80 text-slate-500 dark:text-slate-400 select-none sticky top-0 z-10 backdrop-blur-xs">
+            <thead className="bg-slate-50/80 border-b border-slate-200/80 text-slate-500 select-none sticky top-0 z-10 backdrop-blur-xs">
               <tr>
                 <th
                   onClick={() => handleSort('employeeId')}
-                  className="p-3.5 font-bold cursor-pointer hover:text-slate-900 dark:hover:text-white transition-colors"
+                  className="p-3.5 font-bold cursor-pointer hover:text-slate-900 transition-colors"
                 >
                   <div className="flex items-center gap-1.5">
                     <span>Emp ID</span>
@@ -240,7 +240,7 @@ export function RecordsTable({
 
                 <th
                   onClick={() => handleSort('employeeName')}
-                  className="p-3.5 font-bold cursor-pointer hover:text-slate-900 dark:hover:text-white transition-colors"
+                  className="p-3.5 font-bold cursor-pointer hover:text-slate-900 transition-colors"
                 >
                   <div className="flex items-center gap-1.5">
                     <span>Employee</span>
@@ -254,7 +254,7 @@ export function RecordsTable({
 
                 <th
                   onClick={() => handleSort('department')}
-                  className="p-3.5 font-bold cursor-pointer hover:text-slate-900 dark:hover:text-white transition-colors"
+                  className="p-3.5 font-bold cursor-pointer hover:text-slate-900 transition-colors"
                 >
                   <div className="flex items-center gap-1.5">
                     <span>Department</span>
@@ -264,7 +264,7 @@ export function RecordsTable({
 
                 <th
                   onClick={() => handleSort('plant')}
-                  className="p-3.5 font-bold cursor-pointer hover:text-slate-900 dark:hover:text-white transition-colors"
+                  className="p-3.5 font-bold cursor-pointer hover:text-slate-900 transition-colors"
                 >
                   <div className="flex items-center gap-1.5">
                     <span>Plant</span>
@@ -275,7 +275,7 @@ export function RecordsTable({
                 {visibleColumns.joiningDate && (
                   <th
                     onClick={() => handleSort('joiningDate')}
-                    className="p-3.5 font-bold cursor-pointer hover:text-slate-900 dark:hover:text-white transition-colors"
+                    className="p-3.5 font-bold cursor-pointer hover:text-slate-900 transition-colors"
                   >
                     <div className="flex items-center gap-1.5">
                       <span>Joining</span>
@@ -286,7 +286,7 @@ export function RecordsTable({
 
                 <th
                   onClick={() => handleSort('lastWorkingDate')}
-                  className="p-3.5 font-bold cursor-pointer hover:text-slate-900 dark:hover:text-white transition-colors"
+                  className="p-3.5 font-bold cursor-pointer hover:text-slate-900 transition-colors"
                 >
                   <div className="flex items-center gap-1.5">
                     <span>Exit Date</span>
@@ -297,7 +297,7 @@ export function RecordsTable({
                 {visibleColumns.tenure && (
                   <th
                     onClick={() => handleSort('tenureYears')}
-                    className="p-3.5 font-bold cursor-pointer hover:text-slate-900 dark:hover:text-white transition-colors"
+                    className="p-3.5 font-bold cursor-pointer hover:text-slate-900 transition-colors"
                   >
                     <div className="flex items-center gap-1.5">
                       <span>Tenure</span>
@@ -309,7 +309,7 @@ export function RecordsTable({
                 {visibleColumns.exitType && (
                   <th
                     onClick={() => handleSort('exitType')}
-                    className="p-3.5 font-bold cursor-pointer hover:text-slate-900 dark:hover:text-white transition-colors"
+                    className="p-3.5 font-bold cursor-pointer hover:text-slate-900 transition-colors"
                   >
                     <div className="flex items-center gap-1.5">
                       <span>Exit Type</span>
@@ -320,7 +320,7 @@ export function RecordsTable({
 
                 <th
                   onClick={() => handleSort('primaryReason')}
-                  className="p-3.5 font-bold cursor-pointer hover:text-slate-900 dark:hover:text-white transition-colors"
+                  className="p-3.5 font-bold cursor-pointer hover:text-slate-900 transition-colors"
                 >
                   <div className="flex items-center gap-1.5">
                     <span>Primary Reason</span>
@@ -335,7 +335,7 @@ export function RecordsTable({
                 <th className="p-3.5 font-bold text-right">Action</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60">
+            <tbody className="divide-y divide-slate-100">
               {paginatedRecords.length === 0 ? (
                 <tr>
                   <td colSpan={11} className="p-12 text-center text-slate-400">
@@ -356,15 +356,15 @@ export function RecordsTable({
                     <tr
                       key={rec.id}
                       onClick={() => setSelectedRecord(rec)}
-                      className="hover:bg-blue-50/40 dark:hover:bg-blue-950/20 cursor-pointer transition-colors group"
+                      className="hover:bg-blue-50/40 cursor-pointer transition-colors group"
                     >
-                      <td className="p-3.5 font-mono font-bold text-blue-600 dark:text-blue-400 tabular-nums">
+                      <td className="p-3.5 font-mono font-bold text-blue-600 tabular-nums">
                         {rec.employeeId}
                       </td>
 
-                      <td className="p-3.5 font-medium text-slate-900 dark:text-white">
+                      <td className="p-3.5 font-medium text-slate-900">
                         <div className="flex items-center gap-2.5">
-                          <div className="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-[10px] font-bold text-slate-600 dark:text-slate-300 shrink-0">
+                          <div className="w-6 h-6 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-[10px] font-bold text-slate-600 shrink-0">
                             {initials}
                           </div>
                           <span className="truncate max-w-36">
@@ -374,16 +374,16 @@ export function RecordsTable({
                       </td>
 
                       {visibleColumns.designation && (
-                        <td className="p-3.5 text-slate-600 dark:text-slate-300 truncate max-w-36">
+                        <td className="p-3.5 text-slate-600 truncate max-w-36">
                           {rec.designation}
                         </td>
                       )}
 
-                      <td className="p-3.5 text-slate-600 dark:text-slate-300 truncate max-w-40">
+                      <td className="p-3.5 text-slate-600 truncate max-w-40">
                         {rec.department}
                       </td>
 
-                      <td className="p-3.5 text-slate-600 dark:text-slate-300 font-medium">
+                      <td className="p-3.5 text-slate-600 font-medium">
                         {rec.plant.split(' ')[0]}
                       </td>
 
@@ -399,7 +399,7 @@ export function RecordsTable({
 
                       {visibleColumns.tenure && (
                         <td className="p-3.5">
-                          <span className="font-bold text-slate-800 dark:text-slate-200 tabular-nums">
+                          <span className="font-bold text-slate-800 tabular-nums">
                             {rec.tenureYears} yrs
                           </span>
                           <span className="block text-[10px] text-slate-400 font-medium">
@@ -413,8 +413,8 @@ export function RecordsTable({
                           <span
                             className={`inline-flex items-center gap-1.5 text-[10px] font-semibold px-2.5 py-0.5 rounded-full border shadow-2xs ${
                               isVoluntary
-                                ? 'bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/25'
-                                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700'
+                                ? 'bg-blue-500/10 text-blue-700 border-blue-500/25'
+                                : 'bg-slate-100 text-slate-600 border-slate-200'
                             }`}
                           >
                             <span
@@ -428,7 +428,7 @@ export function RecordsTable({
                       )}
 
                       <td className="p-3.5">
-                        <span className="font-medium text-slate-800 dark:text-slate-200">
+                        <span className="font-medium text-slate-800">
                           {rec.primaryReason}
                         </span>
                         {rec.secondaryReason && (
@@ -459,7 +459,7 @@ export function RecordsTable({
                             e.stopPropagation();
                             setSelectedRecord(rec);
                           }}
-                          className="p-1.5 rounded-lg text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-slate-800 transition-colors"
+                          className="p-1.5 rounded-lg text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition-colors"
                           title="View Full Dossier"
                         >
                           <ExternalLink className="w-4 h-4" />
@@ -474,7 +474,7 @@ export function RecordsTable({
         </div>
 
         {/* Pagination Controls */}
-        <div className="p-3.5 border-t border-slate-200/80 dark:border-slate-800/80 flex items-center justify-between bg-slate-50/60 dark:bg-slate-900/50 text-xs">
+        <div className="p-3.5 border-t border-slate-200/80 flex items-center justify-between bg-slate-50/60 text-xs">
           <span className="text-slate-500 tabular-nums">
             Showing {(currentPage - 1) * pageSize + 1} to{' '}
             {Math.min(currentPage * pageSize, sortedRecords.length)} of {sortedRecords.length}{' '}
@@ -485,17 +485,17 @@ export function RecordsTable({
             <button
               onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
               disabled={currentPage === 1}
-              className="p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 disabled:opacity-30 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+              className="p-1.5 rounded-lg border border-slate-200 disabled:opacity-30 hover:bg-slate-100 transition-colors cursor-pointer"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
-            <span className="px-3 font-semibold text-slate-700 dark:text-slate-300 font-mono">
+            <span className="px-3 font-semibold text-slate-700 font-mono">
               {currentPage} / {totalPages}
             </span>
             <button
               onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
               disabled={currentPage === totalPages}
-              className="p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 disabled:opacity-30 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+              className="p-1.5 rounded-lg border border-slate-200 disabled:opacity-30 hover:bg-slate-100 transition-colors cursor-pointer"
             >
               <ChevronRight className="w-4 h-4" />
             </button>

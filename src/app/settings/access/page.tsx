@@ -25,13 +25,13 @@ export default function AccessSettingsPage() {
   const getRoleIcon = (role: UserRole) => {
     switch (role) {
       case 'CORP_HR':
-        return <UserCheck className="w-4 h-4 text-blue-600 dark:text-blue-400" />;
+        return <UserCheck className="w-4 h-4 text-blue-600" />;
       case 'PLANT_HR':
-        return <Factory className="w-4 h-4 text-amber-600 dark:text-amber-400" />;
+        return <Factory className="w-4 h-4 text-amber-600" />;
       case 'HR_ADMIN':
-        return <Shield className="w-4 h-4 text-purple-600 dark:text-purple-400" />;
+        return <Shield className="w-4 h-4 text-purple-600" />;
       case 'VIEWER':
-        return <Eye className="w-4 h-4 text-slate-500 dark:text-slate-400" />;
+        return <Eye className="w-4 h-4 text-slate-500" />;
     }
   };
 
@@ -44,9 +44,9 @@ export default function AccessSettingsPage() {
 
       <div className="p-6 max-w-6xl mx-auto space-y-6">
         {/* Transparent Auth Status Notice */}
-        <div className="p-4 rounded-lg bg-blue-50/70 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800/80 flex items-start gap-3">
-          <Info className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
-          <div className="text-xs text-blue-900 dark:text-blue-200">
+        <div className="p-4 rounded-lg bg-blue-50 border border-blue-200 flex items-start gap-3">
+          <Info className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+          <div className="text-xs text-blue-900">
             <h4 className="font-bold text-sm">Development Authentication Mode Active</h4>
             <p className="mt-1 leading-relaxed">
               ExitLens is configured in <strong>Development Multi-Persona Simulator</strong> mode. In production deployment, this layer connects to your enterprise identity provider (SAML 2.0 / Azure Active Directory / Okta) to automatically map enterprise claims to SSWL plant assignments.
@@ -55,18 +55,18 @@ export default function AccessSettingsPage() {
         </div>
 
         {/* Active Session & Persona Switcher */}
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-5 shadow-2xs space-y-4">
+        <div className="bg-white border border-slate-200 rounded-lg p-5 shadow-2xs space-y-4">
           <div className="flex items-center justify-between flex-wrap gap-2">
             <div>
-              <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                <Users className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+              <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <Users className="w-4 h-4 text-blue-600" />
                 <span>Simulated Enterprise Personas</span>
               </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400">
+              <p className="text-xs text-slate-500">
                 Click any persona below to instantaneously evaluate application security rules as that user.
               </p>
             </div>
-            <span className="text-[11px] font-mono px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+            <span className="text-[11px] font-mono px-2.5 py-1 rounded bg-slate-100 text-slate-600 border border-slate-200">
               Active: {currentUser.name} ({currentUser.roleTitle})
             </span>
           </div>
@@ -80,17 +80,17 @@ export default function AccessSettingsPage() {
                   onClick={() => switchPersona(persona.id)}
                   className={`p-4 rounded-lg border cursor-pointer transition-all duration-150 relative ${
                     isActive
-                      ? 'bg-blue-50/50 dark:bg-blue-950/40 border-blue-500 ring-1 ring-blue-500 shadow-xs'
-                      : 'bg-slate-50/50 dark:bg-slate-800/40 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
+                      ? 'bg-blue-50 border-blue-500 ring-1 ring-blue-500 shadow-xs'
+                      : 'bg-slate-50/50 border-slate-200 hover:border-slate-300'
                   }`}
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex items-center gap-2">
-                      <div className="w-7 h-7 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center shadow-2xs">
+                      <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-2xs">
                         {getRoleIcon(persona.role)}
                       </div>
                       <div>
-                        <div className="font-bold text-xs text-slate-900 dark:text-white">
+                        <div className="font-bold text-xs text-slate-900">
                           {persona.name}
                         </div>
                         <div className="text-[10px] text-slate-500 font-mono">
@@ -105,15 +105,15 @@ export default function AccessSettingsPage() {
                     )}
                   </div>
 
-                  <div className="mt-3 pt-2.5 border-t border-slate-200/80 dark:border-slate-700/60 flex items-center justify-between text-[11px]">
+                  <div className="mt-3 pt-2.5 border-t border-slate-200 flex items-center justify-between text-[11px]">
                     <span className="text-slate-500">Role:</span>
-                    <span className="font-semibold text-slate-700 dark:text-slate-200">
+                    <span className="font-semibold text-slate-700">
                       {persona.roleTitle}
                     </span>
                   </div>
                   <div className="mt-1 flex items-center justify-between text-[11px]">
                     <span className="text-slate-500">Plant Scope:</span>
-                    <span className="font-semibold text-slate-700 dark:text-slate-200">
+                    <span className="font-semibold text-slate-700">
                       {persona.assignedPlant ? `${persona.assignedPlant} Facility` : 'All 5 Plants'}
                     </span>
                   </div>
@@ -124,20 +124,20 @@ export default function AccessSettingsPage() {
         </div>
 
         {/* Enterprise Permission Matrix */}
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-5 shadow-2xs space-y-4">
+        <div className="bg-white border border-slate-200 rounded-lg p-5 shadow-2xs space-y-4">
           <div>
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+            <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-blue-600" />
               <span>Role Permissions & Capability Matrix</span>
             </h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+            <p className="text-xs text-slate-500 mt-0.5">
               Enforced server-side at the repository layer. Plant HR is strictly quarantined to their facility.
             </p>
           </div>
 
-          <div className="overflow-x-auto border border-slate-200 dark:border-slate-800 rounded-lg">
+          <div className="overflow-x-auto border border-slate-200 rounded-lg">
             <table className="w-full text-left text-xs border-collapse">
-              <thead className="bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 font-semibold">
+              <thead className="bg-slate-50 text-slate-500 font-semibold">
                 <tr>
                   <th className="p-3">Governance Capability</th>
                   {roleList.map((r) => (
@@ -150,9 +150,9 @@ export default function AccessSettingsPage() {
                   ))}
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-150 dark:divide-slate-800">
+              <tbody className="divide-y divide-slate-150">
                 <tr>
-                  <td className="p-3 font-medium text-slate-800 dark:text-slate-200">
+                  <td className="p-3 font-medium text-slate-800">
                     Org-Wide Multi-Plant Access
                   </td>
                   {roleList.map((r) => (
@@ -160,7 +160,7 @@ export default function AccessSettingsPage() {
                       {ROLE_DEFINITIONS[r].canAccessAllPlants ? (
                         <Check className="w-4 h-4 text-emerald-500 mx-auto" />
                       ) : (
-                        <span className="text-[10px] font-semibold text-amber-600 dark:text-amber-400">
+                        <span className="text-[10px] font-semibold text-amber-600">
                           Assigned Plant Only
                         </span>
                       )}
@@ -169,7 +169,7 @@ export default function AccessSettingsPage() {
                 </tr>
 
                 <tr>
-                  <td className="p-3 font-medium text-slate-800 dark:text-slate-200">
+                  <td className="p-3 font-medium text-slate-800">
                     Excel Batch Import (Append)
                   </td>
                   {roleList.map((r) => (
@@ -177,14 +177,14 @@ export default function AccessSettingsPage() {
                       {ROLE_DEFINITIONS[r].canImport ? (
                         <Check className="w-4 h-4 text-emerald-500 mx-auto" />
                       ) : (
-                        <X className="w-4 h-4 text-slate-300 dark:text-slate-600 mx-auto" />
+                        <X className="w-4 h-4 text-slate-300 mx-auto" />
                       )}
                     </td>
                   ))}
                 </tr>
 
                 <tr>
-                  <td className="p-3 font-medium text-slate-800 dark:text-slate-200">
+                  <td className="p-3 font-medium text-slate-800">
                     Full Dataset Replacement (Wipe)
                   </td>
                   {roleList.map((r) => (
@@ -192,14 +192,14 @@ export default function AccessSettingsPage() {
                       {ROLE_DEFINITIONS[r].canReplaceDataset ? (
                         <Check className="w-4 h-4 text-emerald-500 mx-auto" />
                       ) : (
-                        <X className="w-4 h-4 text-slate-300 dark:text-slate-600 mx-auto" />
+                        <X className="w-4 h-4 text-slate-300 mx-auto" />
                       )}
                     </td>
                   ))}
                 </tr>
 
                 <tr>
-                  <td className="p-3 font-medium text-slate-800 dark:text-slate-200">
+                  <td className="p-3 font-medium text-slate-800">
                     Create & Edit Exit Records
                   </td>
                   {roleList.map((r) => (
@@ -207,14 +207,14 @@ export default function AccessSettingsPage() {
                       {ROLE_DEFINITIONS[r].canEditRecords ? (
                         <Check className="w-4 h-4 text-emerald-500 mx-auto" />
                       ) : (
-                        <X className="w-4 h-4 text-slate-300 dark:text-slate-600 mx-auto" />
+                        <X className="w-4 h-4 text-slate-300 mx-auto" />
                       )}
                     </td>
                   ))}
                 </tr>
 
                 <tr>
-                  <td className="p-3 font-medium text-slate-800 dark:text-slate-200">
+                  <td className="p-3 font-medium text-slate-800">
                     Delete Individual Records
                   </td>
                   {roleList.map((r) => (
@@ -222,14 +222,14 @@ export default function AccessSettingsPage() {
                       {ROLE_DEFINITIONS[r].canDeleteRecords ? (
                         <Check className="w-4 h-4 text-emerald-500 mx-auto" />
                       ) : (
-                        <X className="w-4 h-4 text-slate-300 dark:text-slate-600 mx-auto" />
+                        <X className="w-4 h-4 text-slate-300 mx-auto" />
                       )}
                     </td>
                   ))}
                 </tr>
 
                 <tr>
-                  <td className="p-3 font-medium text-slate-800 dark:text-slate-200">
+                  <td className="p-3 font-medium text-slate-800">
                     Master Taxonomy Governance (Plants, Reasons, Headcount)
                   </td>
                   {roleList.map((r) => (
@@ -237,14 +237,14 @@ export default function AccessSettingsPage() {
                       {ROLE_DEFINITIONS[r].canManageMasterData ? (
                         <Check className="w-4 h-4 text-emerald-500 mx-auto" />
                       ) : (
-                        <X className="w-4 h-4 text-slate-300 dark:text-slate-600 mx-auto" />
+                        <X className="w-4 h-4 text-slate-300 mx-auto" />
                       )}
                     </td>
                   ))}
                 </tr>
 
                 <tr>
-                  <td className="p-3 font-medium text-slate-800 dark:text-slate-200">
+                  <td className="p-3 font-medium text-slate-800">
                     Security Audit Trail Inspection
                   </td>
                   {roleList.map((r) => (
@@ -252,7 +252,7 @@ export default function AccessSettingsPage() {
                       {ROLE_DEFINITIONS[r].canViewAuditLogs ? (
                         <Check className="w-4 h-4 text-emerald-500 mx-auto" />
                       ) : (
-                        <X className="w-4 h-4 text-slate-300 dark:text-slate-600 mx-auto" />
+                        <X className="w-4 h-4 text-slate-300 mx-auto" />
                       )}
                     </td>
                   ))}
@@ -263,8 +263,8 @@ export default function AccessSettingsPage() {
         </div>
 
         {/* Plant Isolation Security Principle */}
-        <div className="p-4 rounded-lg bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-2 text-xs text-slate-600 dark:text-slate-300">
-          <div className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+        <div className="p-4 rounded-lg bg-slate-100 border border-slate-200 space-y-2 text-xs text-slate-600">
+          <div className="font-bold text-slate-900 flex items-center gap-2">
             <Lock className="w-4 h-4 text-slate-500" />
             <span>Server-Side Plant Isolation Rule</span>
           </div>

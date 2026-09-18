@@ -32,13 +32,13 @@ export function TopHeader({ title, subtitle, actionButton }: TopHeaderProps) {
   const getRoleIcon = (role: string) => {
     switch (role) {
       case 'CORP_HR':
-        return <UserCheck className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />;
+        return <UserCheck className="w-3.5 h-3.5 text-blue-600" />;
       case 'PLANT_HR':
-        return <Factory className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />;
+        return <Factory className="w-3.5 h-3.5 text-amber-600" />;
       case 'HR_ADMIN':
-        return <Shield className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />;
+        return <Shield className="w-3.5 h-3.5 text-purple-600" />;
       case 'VIEWER':
-        return <Eye className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />;
+        return <Eye className="w-3.5 h-3.5 text-slate-500" />;
       default:
         return <UserCog className="w-3.5 h-3.5 text-blue-500" />;
     }

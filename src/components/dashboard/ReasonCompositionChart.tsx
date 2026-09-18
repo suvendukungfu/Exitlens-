@@ -43,8 +43,8 @@ interface CustomTooltipProps {
 function CustomCompTooltip({ active, payload, label }: CustomTooltipProps) {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-white/95 dark:bg-[#0b0f19]/95 backdrop-blur-xl border border-slate-200 dark:border-slate-700/60 rounded-xl shadow-xl p-3.5 text-xs text-slate-800 dark:text-slate-100 min-w-48">
-        <p className="font-bold text-slate-900 dark:text-slate-100 text-xs mb-1.5 pb-1 border-b border-slate-100 dark:border-slate-800">
+      <div className="bg-white/95 backdrop-blur-xl border border-slate-200 rounded-xl shadow-xl p-3.5 text-xs text-slate-800 min-w-48">
+        <p className="font-bold text-slate-900 text-xs mb-1.5 pb-1 border-b border-slate-100">
           {label}
         </p>
         <div className="space-y-1 text-[11px]">
@@ -57,9 +57,9 @@ function CustomCompTooltip({ active, payload, label }: CustomTooltipProps) {
                     className="w-2 h-2 rounded-full shrink-0"
                     style={{ backgroundColor: entry.color }}
                   />
-                  <span className="text-slate-600 dark:text-slate-400 truncate max-w-32 font-medium">{entry.name}:</span>
+                  <span className="text-slate-600 truncate max-w-32 font-medium">{entry.name}:</span>
                 </div>
-                <span className="font-mono font-bold text-slate-900 dark:text-white tabular-nums">
+                <span className="font-mono font-bold text-slate-900 tabular-nums">
                   {entry.value}
                 </span>
               </div>
@@ -79,8 +79,8 @@ export function ReasonCompositionChart({
 }: ReasonCompositionProps) {
   if (!data || data.length === 0) {
     return (
-      <div className="bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)]">
-        <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">{title}</h3>
+      <div className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)]">
+        <h3 className="text-sm font-bold text-slate-900">{title}</h3>
         <div className="h-64 flex items-center justify-center text-xs text-slate-400">
           No monthly reason data available.
         </div>
@@ -95,16 +95,16 @@ export function ReasonCompositionChart({
   );
 
   return (
-    <div className="bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200">
+    <div className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] hover:border-slate-300 transition-all duration-200">
       <div className="mb-3">
-        <h3 className="text-sm font-bold tracking-tight text-slate-900 dark:text-white">{title}</h3>
-        <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{subtitle}</p>
+        <h3 className="text-sm font-bold tracking-tight text-slate-900">{title}</h3>
+        <p className="text-xs text-slate-500 mt-0.5">{subtitle}</p>
       </div>
 
       <div className="h-72 w-full">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data} margin={{ top: 10, right: 15, left: -10, bottom: 5 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" strokeOpacity={0.6} className="dark:stroke-slate-800" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" strokeOpacity={0.6} />
             <XAxis
               dataKey="label"
               stroke="#64748b"

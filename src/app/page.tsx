@@ -155,82 +155,82 @@ export default function OverviewPage() {
         {/* Bottom Section: Analytical Observations & Data Quality Summary */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Key Observations (strictly calculated) */}
-          <div className="lg:col-span-2 relative bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200 overflow-hidden">
+          <div className="lg:col-span-2 relative bg-white border border-slate-200/90 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] hover:border-slate-300 transition-all duration-200 overflow-hidden">
             <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-blue-600 via-indigo-600 to-sky-400" />
             <div className="flex items-center gap-2.5 mb-2">
-              <div className="w-7 h-7 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400">
+              <div className="w-7 h-7 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-600">
                 <Sparkles className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-slate-900 dark:text-white tracking-tight">
+              <h3 className="text-sm font-bold text-slate-900 tracking-tight">
                 Calculated Empirical Observations
               </h3>
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">
+            <p className="text-xs text-slate-500 mb-4">
               Observations derived strictly from current filtered dataset calculations without speculative assumptions:
             </p>
 
-            <ul className="space-y-3 text-xs text-slate-700 dark:text-slate-300">
+            <ul className="space-y-3 text-xs text-slate-700">
               {observations.map((obs, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200/60 dark:border-slate-800/60">
-                  <span className="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400 mt-1.5 shrink-0 shadow-xs shadow-blue-500/50" />
-                  <span className="leading-relaxed font-medium text-slate-800 dark:text-slate-200">{obs}</span>
+                <li key={idx} className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200/60">
+                  <span className="w-2 h-2 rounded-full bg-blue-600 mt-1.5 shrink-0 shadow-xs shadow-blue-500/50" />
+                  <span className="leading-relaxed font-medium text-slate-800">{obs}</span>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Data Quality Health & Quick Links */}
-          <div className="bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200 flex flex-col justify-between">
+          <div className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] hover:border-slate-300 transition-all duration-200 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-emerald-500" />
-                  <h3 className="text-sm font-bold text-slate-900 dark:text-white tracking-tight">
+                  <h3 className="text-sm font-bold text-slate-900 tracking-tight">
                     Data Health Score
                   </h3>
                 </div>
-                <span className="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/25">
+                <span className="text-xs font-mono font-bold text-emerald-600 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/25">
                   {dataQualityScore}%
                 </span>
               </div>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+              <p className="text-xs text-slate-500 mt-1 leading-relaxed">
                 Completeness of mandatory employee fields across active records.
               </p>
 
-              <div className="mt-4 w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
+              <div className="mt-4 w-full bg-slate-100 rounded-full h-2 overflow-hidden">
                 <div
                   className="bg-linear-to-r from-emerald-500 to-teal-400 h-2 rounded-full transition-all duration-500 shadow-xs shadow-emerald-500/50"
                   style={{ width: `${dataQualityScore}%` }}
                 />
               </div>
 
-              <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 space-y-2.5 text-xs">
-                <div className="flex justify-between items-center text-slate-600 dark:text-slate-400">
+              <div className="mt-5 pt-4 border-t border-slate-100 space-y-2.5 text-xs">
+                <div className="flex justify-between items-center text-slate-600">
                   <span>Early Leavers (&lt;1 yr):</span>
-                  <span className="font-semibold text-slate-900 dark:text-white tabular-nums">
+                  <span className="font-semibold text-slate-900 tabular-nums">
                     {metrics.earlyExitCount} ({metrics.earlyExitPercentage}%)
                   </span>
                 </div>
-                <div className="flex justify-between items-center text-slate-600 dark:text-slate-400">
+                <div className="flex justify-between items-center text-slate-600">
                   <span>Headcount Alignment:</span>
-                  <span className={`font-semibold ${metrics.headcountAvailable ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-400'}`}>
+                  <span className={`font-semibold ${metrics.headcountAvailable ? 'text-emerald-600' : 'text-slate-400'}`}>
                     {metrics.headcountAvailable ? 'Configured' : 'Headcount Required'}
                   </span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-6 pt-3.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <div className="mt-6 pt-3.5 border-t border-slate-100 flex items-center justify-between">
               <Link
                 href="/quality"
-                className="text-xs text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center gap-1.5 font-semibold transition-colors"
+                className="text-xs text-blue-600 hover:text-blue-700 flex items-center gap-1.5 font-semibold transition-colors"
               >
                 <span>Audit Quality</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
               <Link
                 href="/records"
-                className="text-xs text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center gap-1.5 transition-colors font-medium"
+                className="text-xs text-slate-600 hover:text-slate-900 flex items-center gap-1.5 transition-colors font-medium"
               >
                 <span>Browse Records</span>
                 <ArrowRight className="w-3.5 h-3.5" />

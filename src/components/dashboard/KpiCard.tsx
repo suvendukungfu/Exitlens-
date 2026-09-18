@@ -23,34 +23,34 @@ export function KpiCard({
   helperText,
 }: KpiCardProps) {
   const badgeStyles = {
-    neutral: 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700',
-    info: 'bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/25',
-    warning: 'bg-amber-500/10 text-amber-800 dark:text-amber-300 border-amber-500/25',
-    success: 'bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 border-emerald-500/25',
+    neutral: 'bg-slate-100 text-slate-700 border-slate-200',
+    info: 'bg-blue-500/10 text-blue-700 border-blue-500/25',
+    warning: 'bg-amber-500/10 text-amber-800 border-amber-500/25',
+    success: 'bg-emerald-500/10 text-emerald-800 border-emerald-500/25',
   }[badgeType];
 
   const topBorderGlow = {
-    neutral: 'from-slate-300 to-slate-200 dark:from-slate-700 dark:to-slate-800',
+    neutral: 'from-slate-300 to-slate-200',
     info: 'from-blue-600 via-indigo-500 to-sky-400',
     warning: 'from-amber-500 via-orange-500 to-yellow-400',
     success: 'from-emerald-500 via-teal-500 to-green-400',
   }[badgeType];
 
   const iconBg = {
-    neutral: 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400',
-    info: 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border-blue-200/50 dark:border-blue-900/40',
-    warning: 'bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 border-amber-200/50 dark:border-amber-900/40',
-    success: 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border-emerald-200/50 dark:border-emerald-900/40',
+    neutral: 'bg-slate-100 text-slate-600',
+    info: 'bg-blue-50 text-blue-600 border-blue-200/50',
+    warning: 'bg-amber-50 text-amber-600 border-amber-200/50',
+    success: 'bg-emerald-50 text-emerald-600 border-emerald-200/50',
   }[badgeType];
 
   return (
-    <div className="group relative bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-5 shadow-[0_4px_16px_rgba(15,23,42,0.04)] hover:shadow-[0_8px_24px_rgba(15,23,42,0.08)] hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200 hover:-translate-y-0.5 overflow-hidden flex flex-col justify-between min-h-40">
+    <div className="group relative bg-white border border-slate-200/90 rounded-2xl p-5 shadow-[0_4px_16px_rgba(15,23,42,0.04)] hover:shadow-[0_8px_24px_rgba(15,23,42,0.08)] hover:border-slate-300 transition-all duration-200 hover:-translate-y-0.5 overflow-hidden flex flex-col justify-between min-h-40">
       {/* Top Subtle Gradient Edge Highlight */}
-      <div className={`absolute top-0 inset-x-0 h-1 bg-linear-to-r ${topBorderGlow} opacity-90 group-hover:opacity-100 transition-opacity`} />
+      <div className={`absolute top-0 inset-0 h-1 bg-linear-to-r ${topBorderGlow} opacity-90 group-hover:opacity-100 transition-opacity`} />
 
       <div>
         <div className="flex items-center justify-between gap-2">
-          <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider line-clamp-1" title={label}>
+          <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider line-clamp-1" title={label}>
             {label}
           </span>
           {Icon && (
@@ -61,7 +61,7 @@ export function KpiCard({
         </div>
 
         <div className="mt-3 flex items-baseline gap-2.5 flex-wrap">
-          <span className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white tabular-nums">
+          <span className="text-3xl font-extrabold tracking-tight text-slate-900 tabular-nums">
             {value}
           </span>
           {badge && (
@@ -72,15 +72,15 @@ export function KpiCard({
         </div>
 
         {subtitle && (
-          <p className="mt-1.5 text-xs text-slate-600 dark:text-slate-300 font-medium leading-relaxed truncate" title={subtitle}>
+          <p className="mt-1.5 text-xs text-slate-600 font-medium leading-relaxed truncate" title={subtitle}>
             {subtitle}
           </p>
         )}
       </div>
 
       {helperText && (
-        <div className="mt-3.5 pt-2.5 border-t border-slate-100 dark:border-slate-800/70">
-          <p className="text-[10.5px] text-slate-400 dark:text-slate-500 font-normal leading-tight truncate" title={helperText}>
+        <div className="mt-3.5 pt-2.5 border-t border-slate-100">
+          <p className="text-[10.5px] text-slate-400 font-normal leading-tight truncate" title={helperText}>
             {helperText}
           </p>
         </div>

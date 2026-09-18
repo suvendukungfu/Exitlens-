@@ -34,11 +34,11 @@ function TenureCustomTooltip({ active, payload, label }: CustomTooltipProps) {
   if (!active || !payload || !payload.length) return null;
   const entry = payload[0];
   return (
-    <div className="bg-white/95 dark:bg-[#0b0f19]/95 backdrop-blur-xl border border-slate-200 dark:border-slate-700/60 rounded-xl shadow-xl p-3 text-xs text-slate-800 dark:text-slate-100 min-w-42.5">
-      <p className="text-xs font-bold text-slate-900 dark:text-slate-100 mb-1.5 border-b border-slate-100 dark:border-slate-800 pb-1">{label || entry.name}</p>
+    <div className="bg-white/95 backdrop-blur-xl border border-slate-200 rounded-xl shadow-xl p-3 text-xs text-slate-800 min-w-42.5">
+      <p className="text-xs font-bold text-slate-900 mb-1.5 border-b border-slate-100 pb-1">{label || entry.name}</p>
       <div className="flex items-center justify-between text-xs gap-3">
-        <span className="text-slate-500 dark:text-slate-400">Avg Tenure:</span>
-        <span className="font-semibold text-slate-900 dark:text-white font-mono">{entry.value} yrs</span>
+        <span className="text-slate-500">Avg Tenure:</span>
+        <span className="font-semibold text-slate-900 font-mono">{entry.value} yrs</span>
       </div>
     </div>
   );
@@ -121,11 +121,11 @@ export default function TenurePage() {
         {/* Charts Row 2: Tenure by Department & Tenure by Plant */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Average Tenure by Department */}
-          <div className="bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] relative overflow-hidden">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
+          <div className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] relative overflow-hidden">
+            <h3 className="text-sm font-bold text-slate-900 mb-1">
               Average Tenure at Exit by Department
             </h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mb-5">
+            <p className="text-xs text-slate-500 mb-5">
               Comparing average service length across operational divisions
             </p>
 
@@ -162,11 +162,11 @@ export default function TenurePage() {
           </div>
 
           {/* Average Tenure by Plant */}
-          <div className="bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] relative overflow-hidden">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
+          <div className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] relative overflow-hidden">
+            <h3 className="text-sm font-bold text-slate-900 mb-1">
               Average Tenure at Exit by Plant
             </h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mb-5">
+            <p className="text-xs text-slate-500 mb-5">
               Tenure differences across Steel Strips Wheels operating locations
             </p>
 
@@ -203,40 +203,40 @@ export default function TenurePage() {
         </div>
 
         {/* Business Rule & Calculation Methodology Documentation */}
-        <div className="bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] space-y-4 relative overflow-hidden">
+        <div className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] space-y-4 relative overflow-hidden">
           <div className="flex items-center gap-2.5">
-            <div className="p-1.5 rounded-lg bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20">
-              <Info className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+            <div className="p-1.5 rounded-lg bg-blue-50 border border-blue-200">
+              <Info className="w-4 h-4 text-blue-600" />
             </div>
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white">
+            <h3 className="text-sm font-bold text-slate-900">
               Standardized Tenure Methodology & Business Rules
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-slate-600 dark:text-slate-300">
-            <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200/60 dark:border-slate-800/80">
-              <span className="font-bold text-slate-900 dark:text-white block mb-1.5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-slate-600">
+            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/60">
+              <span className="font-bold text-slate-900 block mb-1.5">
                 1. Effective Calculation Interval
               </span>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                Calculated strictly from <code className="text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-500/10 px-1 py-0.5 rounded font-mono">Joining Date</code> to <code className="text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-500/10 px-1 py-0.5 rounded font-mono">Last Working Date</code>. If Last Working Date is unrecorded, the <code className="text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-500/10 px-1 py-0.5 rounded font-mono">Resignation Date</code> is utilized as the operational end marker.
+              <p className="text-slate-600 leading-relaxed">
+                Calculated strictly from <code className="text-blue-600 bg-blue-50 px-1 py-0.5 rounded font-mono">Joining Date</code> to <code className="text-blue-600 bg-blue-50 px-1 py-0.5 rounded font-mono">Last Working Date</code>. If Last Working Date is unrecorded, the <code className="text-blue-600 bg-blue-50 px-1 py-0.5 rounded font-mono">Resignation Date</code> is utilized as the operational end marker.
               </p>
             </div>
 
-            <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200/60 dark:border-slate-800/80">
-              <span className="font-bold text-slate-900 dark:text-white block mb-1.5">
+            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/60">
+              <span className="font-bold text-slate-900 block mb-1.5">
                 2. Discretionary Precision Rule
               </span>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                Values are displayed rounded to a single decimal (e.g. <code className="text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-500/10 px-1 py-0.5 rounded font-mono">2.8 years</code>) to reflect practical human resource decision-making and prevent misleading false precision.
+              <p className="text-slate-600 leading-relaxed">
+                Values are displayed rounded to a single decimal (e.g. <code className="text-blue-600 bg-blue-50 px-1 py-0.5 rounded font-mono">2.8 years</code>) to reflect practical human resource decision-making and prevent misleading false precision.
               </p>
             </div>
 
-            <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200/60 dark:border-slate-800/80">
-              <span className="font-bold text-slate-900 dark:text-white block mb-1.5">
+            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/60">
+              <span className="font-bold text-slate-900 block mb-1.5">
                 3. Early Career Risk Thresholds
               </span>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 Departures occurring before 180 days (&lt;6 months) are marked as onboarding risk indicators. Departures between 1 and 2 years represent skilled transition turnover.
               </p>
             </div>
