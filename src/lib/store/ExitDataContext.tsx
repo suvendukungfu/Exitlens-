@@ -120,29 +120,25 @@ export function ExitDataProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [showEmployeeNames, setShowEmployeeNames] = useState<boolean>(true);
 
-  // Sync DOM theme class on mount or theme change
+  // Enforce pure light mode across the application
   useEffect(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY_THEME) as 'light' | 'dark' | null;
-      if (saved) {
-        document.documentElement.classList.toggle('dark', saved === 'dark');
-      }
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem(STORAGE_KEY_THEME, 'light');
     } catch {
       // Fallback
     }
   }, []);
 
   const toggleTheme = () => {
-    setTheme((prev) => {
-      const next = prev === 'light' ? 'dark' : 'light';
-      try {
-        localStorage.setItem(STORAGE_KEY_THEME, next);
-        document.documentElement.classList.toggle('dark', next === 'dark');
-      } catch {
-        // Fallback
-      }
-      return next;
-    });
+    // Pure light mode enforced
+    setTheme('light');
+    try {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem(STORAGE_KEY_THEME, 'light');
+    } catch {
+      // Fallback
+    }
   };
 
   const { currentUser, roleDef } = useDevAuth();

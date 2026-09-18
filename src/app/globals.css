@@ -44,45 +44,45 @@
   }
 
   .dark {
-    --background: #080c14;
-    --foreground: #f8fafc;
-    --card: #0e1422;
-    --card-foreground: #f8fafc;
-    --card-border: #1e293b;
-    --muted: #162032;
-    --muted-foreground: #94a3b8;
-    --accent: #3b82f6;
+    --background: #f8fafc;
+    --foreground: #090d16;
+    --card: #ffffff;
+    --card-foreground: #090d16;
+    --card-border: #e2e8f0;
+    --muted: #f1f5f9;
+    --muted-foreground: #64748b;
+    --accent: #2563eb;
     --accent-foreground: #ffffff;
-    --border: #1e293b;
-    --input: #1e293b;
-    --ring: #60a5fa;
+    --border: #e2e8f0;
+    --input: #e2e8f0;
+    --ring: #3b82f6;
 
-    /* Status Tokens in Dark Mode */
-    --status-success-bg: rgba(16, 185, 129, 0.12);
-    --status-success-text: #34d399;
-    --status-success-border: rgba(52, 211, 153, 0.25);
+    /* Status Tokens */
+    --status-success-bg: #ecfdf5;
+    --status-success-text: #047857;
+    --status-success-border: #a7f3d0;
 
-    --status-warning-bg: rgba(245, 158, 11, 0.12);
-    --status-warning-text: #fbbf24;
-    --status-warning-border: rgba(251, 191, 36, 0.25);
+    --status-warning-bg: #fffbeb;
+    --status-warning-text: #b45309;
+    --status-warning-border: #fde68a;
 
-    --status-error-bg: rgba(239, 68, 68, 0.12);
-    --status-error-text: #f87171;
-    --status-error-border: rgba(248, 113, 113, 0.25);
+    --status-error-bg: #fef2f2;
+    --status-error-text: #b91c1c;
+    --status-error-border: #fecaca;
 
-    --status-info-bg: rgba(59, 130, 246, 0.12);
-    --status-info-text: #60a5fa;
-    --status-info-border: rgba(96, 165, 250, 0.25);
+    --status-info-bg: #eff6ff;
+    --status-info-text: #1d4ed8;
+    --status-info-border: #bfdbfe;
 
-    /* Chart Colors in Dark Mode */
-    --chart-1: #60a5fa;
-    --chart-2: #2dd4bf;
-    --chart-3: #fbbf24;
-    --chart-4: #818cf8;
-    --chart-5: #38bdf8;
-    --chart-6: #fb7185;
-    --chart-7: #a78bfa;
-    --chart-8: #34d399;
+    /* Chart Colors */
+    --chart-1: #2563eb;
+    --chart-2: #0d9488;
+    --chart-3: #f59e0b;
+    --chart-4: #6366f1;
+    --chart-5: #0284c7;
+    --chart-6: #e11d48;
+    --chart-7: #8b5cf6;
+    --chart-8: #10b981;
   }
 }
 
@@ -96,17 +96,10 @@ body {
 
 /* FAANG Level Design Tokens & Glassmorphism Utilities */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(226, 232, 240, 0.8);
-}
-
-.dark .glass-panel {
-  background: rgba(14, 20, 34, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .card-faang {
@@ -119,11 +112,6 @@ body {
 .card-faang:hover {
   border-color: rgba(99, 102, 241, 0.3);
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
-}
-
-.dark .card-faang:hover {
-  border-color: rgba(96, 165, 250, 0.3);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
 }
 
 /* Custom Clean Scrollbar */

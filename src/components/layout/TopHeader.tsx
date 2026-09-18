@@ -45,28 +45,28 @@ export function TopHeader({ title, subtitle, actionButton }: TopHeaderProps) {
   };
 
   return (
-    <div className="no-print bg-white/80 dark:bg-[#0b0f19]/80 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800/80 px-6 py-4 sticky top-0 z-20 transition-colors">
+    <div className="no-print bg-white/80 backdrop-blur-xl border-b border-slate-200/80 px-6 py-4 sticky top-0 z-20 transition-colors">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         {/* Title Area */}
         <div>
           <div className="flex items-center gap-2.5 flex-wrap">
-            <h1 className="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+            <h1 className="text-xl font-extrabold tracking-tight text-slate-900">
               {title}
             </h1>
             {isDemoData && (
-              <span className="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-800 dark:text-amber-300 border border-amber-500/25">
+              <span className="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-800 border border-amber-500/25">
                 <Sparkles className="w-3 h-3 text-amber-500" />
                 Demo Dataset
               </span>
             )}
             {currentUser.role === 'PLANT_HR' && (
-              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-700 dark:text-blue-300 border border-blue-500/25 flex items-center gap-1">
+              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200/60 flex items-center gap-1">
                 <Factory className="w-3 h-3" />
                 <span>Restricted: {currentUser.assignedPlant} Plant</span>
               </span>
             )}
           </div>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-normal">
+          <p className="text-xs text-slate-500 mt-1 font-normal">
             {subtitle || 'Enterprise departure analytics and retention diagnostics across manufacturing facilities.'}
           </p>
         </div>
@@ -77,21 +77,21 @@ export function TopHeader({ title, subtitle, actionButton }: TopHeaderProps) {
           <div className="relative">
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="group flex items-center gap-2.5 px-3 py-1.5 rounded-lg border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-slate-300 dark:hover:border-slate-700 transition-all shadow-xs text-left cursor-pointer"
+              className="group flex items-center gap-2.5 px-3 py-1.5 rounded-xl border border-slate-200/90 bg-white hover:border-slate-300 transition-all shadow-xs text-left cursor-pointer"
               title="Switch user role persona for testing"
             >
-              <div className="w-6 h-6 rounded-full bg-blue-50 dark:bg-blue-950/80 border border-blue-200/60 dark:border-blue-800/60 flex items-center justify-center shrink-0">
+              <div className="w-6 h-6 rounded-full bg-blue-50 border border-blue-200/60 flex items-center justify-center shrink-0">
                 {getRoleIcon(currentUser.role)}
               </div>
               <div className="text-[11px] leading-tight pr-0.5">
-                <div className="font-semibold text-slate-800 dark:text-slate-200 truncate max-w-32">
+                <div className="font-semibold text-slate-800 truncate max-w-32">
                   {currentUser.name}
                 </div>
-                <div className="text-[10px] text-slate-500 dark:text-slate-400 truncate max-w-32">
+                <div className="text-[10px] text-slate-500 truncate max-w-32">
                   {currentUser.roleTitle} {currentUser.assignedPlant ? `(${currentUser.assignedPlant})` : ''}
                 </div>
               </div>
-              <ChevronDown className="w-3 h-3 text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors" />
+              <ChevronDown className="w-3 h-3 text-slate-400 group-hover:text-slate-600 transition-colors" />
             </button>
 
             {dropdownOpen && (
@@ -100,12 +100,12 @@ export function TopHeader({ title, subtitle, actionButton }: TopHeaderProps) {
                   className="fixed inset-0 z-40"
                   onClick={() => setDropdownOpen(false)}
                 />
-                <div className="absolute right-0 mt-2 w-80 bg-white/95 dark:bg-[#0e1422]/95 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-xl shadow-2xl py-2 z-50 text-xs animate-in fade-in zoom-in-95 duration-150">
-                  <div className="px-3.5 py-2 border-b border-slate-100 dark:border-slate-800/80">
+                <div className="absolute right-0 mt-2 w-80 bg-white/95 backdrop-blur-xl border border-slate-200 rounded-2xl shadow-xl py-2 z-50 text-xs animate-in fade-in zoom-in-95 duration-150">
+                  <div className="px-3.5 py-2 border-b border-slate-100">
                     <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
                       Enterprise Role Simulation
                     </span>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                    <p className="text-[11px] text-slate-500 mt-0.5">
                       Switch persona to test plant isolation & permissions:
                     </p>
                   </div>
@@ -120,23 +120,23 @@ export function TopHeader({ title, subtitle, actionButton }: TopHeaderProps) {
                             switchPersona(p.id);
                             setDropdownOpen(false);
                           }}
-                          className={`w-full text-left px-3 py-2 rounded-lg flex items-center gap-3 transition-colors cursor-pointer ${
+                          className={`w-full text-left px-3 py-2 rounded-xl flex items-center gap-3 transition-colors cursor-pointer ${
                             isSelected
-                              ? 'bg-blue-50/90 dark:bg-blue-950/60 text-blue-900 dark:text-blue-200 font-semibold'
-                              : 'hover:bg-slate-100/70 dark:hover:bg-slate-800/50 text-slate-700 dark:text-slate-300'
+                              ? 'bg-blue-50 text-blue-900 font-semibold'
+                              : 'hover:bg-slate-50 text-slate-700'
                           }`}
                         >
-                          <div className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0">
+                          <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center shrink-0">
                             {getRoleIcon(p.role)}
                           </div>
                           <div className="flex-1 min-w-0">
                             <div className="font-medium truncate">{p.name}</div>
-                            <div className="text-[10px] text-slate-500 dark:text-slate-400 truncate">
+                            <div className="text-[10px] text-slate-500 truncate">
                               {p.roleTitle} {p.assignedPlant ? `• Plant: ${p.assignedPlant}` : '• Corporate'}
                             </div>
                           </div>
                           {isSelected && (
-                            <Check className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" />
+                            <Check className="w-4 h-4 text-blue-600 shrink-0" />
                           )}
                         </button>
                       );
@@ -147,9 +147,9 @@ export function TopHeader({ title, subtitle, actionButton }: TopHeaderProps) {
             )}
           </div>
 
-          <div className="hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-slate-600 dark:text-slate-300 bg-slate-100/80 dark:bg-slate-800/60 px-3 py-1.5 rounded-lg border border-slate-200/80 dark:border-slate-700/60">
+          <div className="hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-slate-600 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200/80">
             <Calendar className="w-3.5 h-3.5 text-slate-400" />
-            <span className="font-semibold text-slate-800 dark:text-slate-200">{filteredRecords.length}</span>
+            <span className="font-semibold text-slate-800">{filteredRecords.length}</span>
             <span className="text-slate-400">/</span>
             <span>{records.length} records</span>
           </div>
@@ -157,15 +157,15 @@ export function TopHeader({ title, subtitle, actionButton }: TopHeaderProps) {
           <button
             onClick={resetFilters}
             title="Reset active filters"
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all shadow-xs cursor-pointer active:scale-98"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 transition-all shadow-xs cursor-pointer active:scale-98"
           >
-            <RefreshCw className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
+            <RefreshCw className="w-3.5 h-3.5 text-slate-500" />
             <span>Reset</span>
           </button>
 
           <button
             onClick={handleExport}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-white bg-linear-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-lg transition-all shadow-sm shadow-blue-500/20 active:scale-98 cursor-pointer ring-1 ring-white/10"
+            className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-white bg-linear-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-xl transition-all shadow-sm shadow-blue-500/20 active:scale-98 cursor-pointer ring-1 ring-blue-500/20"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Export Excel</span>

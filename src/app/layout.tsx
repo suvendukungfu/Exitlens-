@@ -18,9 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full antialiased scroll-smooth">
-      <body className="h-full flex flex-col bg-slate-50 dark:bg-[#080c14] text-slate-900 dark:text-slate-100 font-sans selection:bg-blue-600 selection:text-white relative">
+      <body className="h-full flex flex-col bg-[#f8fafc] text-slate-900 font-sans selection:bg-blue-600 selection:text-white relative">
         {/* Subtle Ambient Depth Mesh */}
-        <div className="fixed inset-0 pointer-events-none bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(59,130,246,0.05),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(59,130,246,0.07),rgba(0,0,0,0))] z-0" />
+        <div className="fixed inset-0 pointer-events-none bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(59,130,246,0.05),rgba(255,255,255,0))] z-0" />
         <DevAuthProvider>
           <ExitDataProvider>
             <div className="flex h-full w-full overflow-hidden relative z-10">

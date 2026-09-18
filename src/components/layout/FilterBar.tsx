@@ -82,7 +82,7 @@ export function FilterBar() {
   };
 
   return (
-    <div className="no-print bg-white/70 dark:bg-[#0b0f19]/70 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800/80 px-6 py-2.5 transition-all">
+    <div className="no-print bg-white/80 backdrop-blur-xl border-b border-slate-200/80 px-6 py-2.5 transition-all">
       <div className="flex flex-wrap items-center justify-between gap-3">
         {/* Quick Search & Command Bar */}
         <div className="flex items-center gap-2.5 flex-1 min-w-64 max-w-md">
@@ -95,17 +95,17 @@ export function FilterBar() {
               onChange={(e) =>
                 setFilterState((prev) => ({ ...prev, searchQuery: e.target.value }))
               }
-              className="w-full pl-9 pr-8 py-1.5 text-xs rounded-lg bg-slate-50/80 dark:bg-slate-900/80 border border-slate-200/90 dark:border-slate-800 text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+              className="w-full pl-9 pr-8 py-1.5 text-xs rounded-xl bg-slate-50/80 border border-slate-200/90 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all shadow-2xs"
             />
             {filterState.searchQuery ? (
               <button
                 onClick={() => setFilterState((prev) => ({ ...prev, searchQuery: '' }))}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 cursor-pointer"
               >
                 <X className="w-3.5 h-3.5" />
               </button>
             ) : (
-              <div className="hidden sm:flex items-center gap-0.5 absolute right-2.5 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded text-[9px] font-mono text-slate-400 bg-slate-200/50 dark:bg-slate-800 border border-slate-300/40 dark:border-slate-700/50 pointer-events-none">
+              <div className="hidden sm:flex items-center gap-0.5 absolute right-2.5 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded text-[9px] font-mono text-slate-400 bg-slate-200/50 border border-slate-300/40 pointer-events-none">
                 <Command className="w-2.5 h-2.5" />
                 <span>K</span>
               </div>
@@ -116,43 +116,43 @@ export function FilterBar() {
         {/* Filter Trigger & Dropdowns */}
         <div className="flex items-center gap-2.5 flex-wrap">
           {/* Date Range Presets Segmented Control */}
-          <div className="flex items-center bg-slate-100/90 dark:bg-slate-800/80 p-0.5 rounded-lg text-[11px] font-medium text-slate-600 dark:text-slate-400 border border-slate-200/80 dark:border-slate-700/80 shadow-2xs">
+          <div className="flex items-center bg-slate-100 p-0.5 rounded-xl text-[11px] font-medium text-slate-600 border border-slate-200/80 shadow-2xs">
             <button
               onClick={() => handleDatePreset('ALL')}
-              className={`px-2.5 py-1 rounded-md transition-all cursor-pointer ${
+              className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
                 filterState.dateRange.preset === 'ALL'
-                  ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-semibold shadow-xs'
-                  : 'hover:text-slate-900 dark:hover:text-white'
+                  ? 'bg-white text-slate-900 font-semibold shadow-xs'
+                  : 'hover:text-slate-900'
               }`}
             >
               All Time
             </button>
             <button
               onClick={() => handleDatePreset('THIS_YEAR')}
-              className={`px-2.5 py-1 rounded-md transition-all cursor-pointer ${
+              className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
                 filterState.dateRange.preset === 'THIS_YEAR'
-                  ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-semibold shadow-xs'
-                  : 'hover:text-slate-900 dark:hover:text-white'
+                  ? 'bg-white text-slate-900 font-semibold shadow-xs'
+                  : 'hover:text-slate-900'
               }`}
             >
               2025
             </button>
             <button
               onClick={() => handleDatePreset('LAST_YEAR')}
-              className={`px-2.5 py-1 rounded-md transition-all cursor-pointer ${
+              className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
                 filterState.dateRange.preset === 'LAST_YEAR'
-                  ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-semibold shadow-xs'
-                  : 'hover:text-slate-900 dark:hover:text-white'
+                  ? 'bg-white text-slate-900 font-semibold shadow-xs'
+                  : 'hover:text-slate-900'
               }`}
             >
               2024
             </button>
             <button
               onClick={() => handleDatePreset('LAST_12_MONTHS')}
-              className={`px-2.5 py-1 rounded-md transition-all cursor-pointer ${
+              className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
                 filterState.dateRange.preset === 'LAST_12_MONTHS'
-                  ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-semibold shadow-xs'
-                  : 'hover:text-slate-900 dark:hover:text-white'
+                  ? 'bg-white text-slate-900 font-semibold shadow-xs'
+                  : 'hover:text-slate-900'
               }`}
             >
               Last 12M
@@ -162,10 +162,10 @@ export function FilterBar() {
           {/* Expand Filter Button */}
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer shadow-2xs active:scale-98 ${
+            className={`flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer shadow-2xs active:scale-98 ${
               activeFilterCount > 0
-                ? 'bg-blue-50/90 border-blue-300 text-blue-700 dark:bg-blue-950/60 dark:border-blue-800 dark:text-blue-300'
-                : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:border-slate-300 dark:hover:border-slate-700'
+                ? 'bg-blue-50 border-blue-200 text-blue-700'
+                : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300'
             }`}
           >
             <Filter className="w-3.5 h-3.5" />
@@ -181,7 +181,7 @@ export function FilterBar() {
           {activeFilterCount > 0 && (
             <button
               onClick={resetFilters}
-              className="text-xs text-slate-500 hover:text-slate-800 dark:hover:text-slate-300 underline underline-offset-2 px-1 cursor-pointer font-medium"
+              className="text-xs text-slate-500 hover:text-slate-800 underline underline-offset-2 px-1 cursor-pointer font-medium"
             >
               Clear All
             </button>
@@ -191,10 +191,10 @@ export function FilterBar() {
 
       {/* Expanded Multi-select Filter Panel */}
       {isExpanded && (
-        <div className="mt-3 pt-3.5 border-t border-slate-200/80 dark:border-slate-800/80 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs animate-in fade-in duration-150">
+        <div className="mt-3 pt-3.5 border-t border-slate-200/80 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs animate-in fade-in duration-150">
           {/* Plant / Location Filter */}
-          <div className="bg-slate-50/60 dark:bg-slate-900/40 p-3 rounded-xl border border-slate-200/60 dark:border-slate-800/60">
-            <label className="flex items-center gap-1.5 font-bold text-slate-700 dark:text-slate-300 mb-2 text-[11px] tracking-tight">
+          <div className="bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80 shadow-2xs">
+            <label className="flex items-center gap-1.5 font-bold text-slate-700 mb-2 text-[11px] tracking-tight">
               <Factory className="w-3.5 h-3.5 text-blue-500" />
               <span>Plant / Facility ({filterState.plant.length || 'All'})</span>
             </label>
@@ -206,14 +206,14 @@ export function FilterBar() {
                     key={plant}
                     type="button"
                     onClick={() => handlePlantToggle(plant)}
-                    className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-md text-left transition-colors cursor-pointer text-xs ${
+                    className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-left transition-colors cursor-pointer text-xs ${
                       selected
-                        ? 'bg-blue-50 text-blue-700 font-semibold dark:bg-blue-950/60 dark:text-blue-300'
-                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/60'
+                        ? 'bg-blue-50 text-blue-700 font-semibold'
+                        : 'text-slate-600 hover:bg-slate-200/50'
                     }`}
                   >
                     <span className="truncate">{plant}</span>
-                    {selected && <Check className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0" />}
+                    {selected && <Check className="w-3.5 h-3.5 text-blue-600 shrink-0" />}
                   </button>
                 );
               })}
@@ -221,8 +221,8 @@ export function FilterBar() {
           </div>
 
           {/* Department Filter */}
-          <div className="bg-slate-50/60 dark:bg-slate-900/40 p-3 rounded-xl border border-slate-200/60 dark:border-slate-800/60">
-            <label className="flex items-center gap-1.5 font-bold text-slate-700 dark:text-slate-300 mb-2 text-[11px] tracking-tight">
+          <div className="bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80 shadow-2xs">
+            <label className="flex items-center gap-1.5 font-bold text-slate-700 mb-2 text-[11px] tracking-tight">
               <Building2 className="w-3.5 h-3.5 text-indigo-500" />
               <span>Department ({filterState.department.length || 'All'})</span>
             </label>
@@ -234,14 +234,14 @@ export function FilterBar() {
                     key={dept.name}
                     type="button"
                     onClick={() => handleDeptToggle(dept.name)}
-                    className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-md text-left transition-colors cursor-pointer text-xs ${
+                    className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-left transition-colors cursor-pointer text-xs ${
                       selected
-                        ? 'bg-blue-50 text-blue-700 font-semibold dark:bg-blue-950/60 dark:text-blue-300'
-                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/60'
+                        ? 'bg-blue-50 text-blue-700 font-semibold'
+                        : 'text-slate-600 hover:bg-slate-200/50'
                     }`}
                   >
                     <span className="truncate">{dept.name}</span>
-                    {selected && <Check className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0" />}
+                    {selected && <Check className="w-3.5 h-3.5 text-blue-600 shrink-0" />}
                   </button>
                 );
               })}
@@ -249,8 +249,8 @@ export function FilterBar() {
           </div>
 
           {/* Primary Reason Filter */}
-          <div className="bg-slate-50/60 dark:bg-slate-900/40 p-3 rounded-xl border border-slate-200/60 dark:border-slate-800/60">
-            <label className="flex items-center gap-1.5 font-bold text-slate-700 dark:text-slate-300 mb-2 text-[11px] tracking-tight">
+          <div className="bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80 shadow-2xs">
+            <label className="flex items-center gap-1.5 font-bold text-slate-700 mb-2 text-[11px] tracking-tight">
               <Layers className="w-3.5 h-3.5 text-amber-500" />
               <span>Exit Reason ({filterState.primaryReason.length || 'All'})</span>
             </label>
@@ -262,14 +262,14 @@ export function FilterBar() {
                     key={r.category}
                     type="button"
                     onClick={() => handleReasonToggle(r.category)}
-                    className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-md text-left transition-colors cursor-pointer text-xs ${
+                    className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-left transition-colors cursor-pointer text-xs ${
                       selected
-                        ? 'bg-blue-50 text-blue-700 font-semibold dark:bg-blue-950/60 dark:text-blue-300'
-                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/60'
+                        ? 'bg-blue-50 text-blue-700 font-semibold'
+                        : 'text-slate-600 hover:bg-slate-200/50'
                     }`}
                   >
                     <span className="truncate">{r.category}</span>
-                    {selected && <Check className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0" />}
+                    {selected && <Check className="w-3.5 h-3.5 text-blue-600 shrink-0" />}
                   </button>
                 );
               })}
@@ -277,9 +277,9 @@ export function FilterBar() {
           </div>
 
           {/* Employment Type & Exit Type Filter */}
-          <div className="bg-slate-50/60 dark:bg-slate-900/40 p-3 rounded-xl border border-slate-200/60 dark:border-slate-800/60 space-y-3">
+          <div className="bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80 shadow-2xs space-y-3">
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 mb-1.5 block text-[11px] tracking-tight">
+              <label className="font-bold text-slate-700 mb-1.5 block text-[11px] tracking-tight">
                 Employment Type
               </label>
               <select
@@ -290,7 +290,7 @@ export function FilterBar() {
                     employmentType: e.target.value ? [e.target.value] : [],
                   }))
                 }
-                className="w-full px-2.5 py-1.5 rounded-lg text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500/20"
+                className="w-full px-2.5 py-1.5 rounded-lg text-xs bg-white border border-slate-200 text-slate-800 focus:outline-hidden focus:ring-2 focus:ring-blue-500/20"
               >
                 <option value="">All Employment Types</option>
                 {masterData.employmentTypes.map((t) => (
@@ -302,7 +302,7 @@ export function FilterBar() {
             </div>
 
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 mb-1.5 block text-[11px] tracking-tight">
+              <label className="font-bold text-slate-700 mb-1.5 block text-[11px] tracking-tight">
                 Exit Type
               </label>
               <select
@@ -313,7 +313,7 @@ export function FilterBar() {
                     exitType: e.target.value ? [e.target.value] : [],
                   }))
                 }
-                className="w-full px-2.5 py-1.5 rounded-lg text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500/20"
+                className="w-full px-2.5 py-1.5 rounded-lg text-xs bg-white border border-slate-200 text-slate-800 focus:outline-hidden focus:ring-2 focus:ring-blue-500/20"
               >
                 <option value="">All Exit Types</option>
                 {masterData.exitTypes.map((t) => (
@@ -335,7 +335,7 @@ export function FilterBar() {
           {filterState.plant.map((p) => (
             <span
               key={p}
-              className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 border border-blue-200/80 dark:border-blue-800/60 shadow-2xs"
+              className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-blue-50 text-blue-700 border border-blue-200/80 shadow-2xs"
             >
               <span>Plant: {p.split(' ')[0]}</span>
               <button onClick={() => handlePlantToggle(p)} className="hover:text-red-500 cursor-pointer">
@@ -347,7 +347,7 @@ export function FilterBar() {
           {filterState.department.map((d) => (
             <span
               key={d}
-              className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 border border-indigo-200/80 dark:border-indigo-800/60 shadow-2xs"
+              className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-indigo-50 text-indigo-700 border border-indigo-200/80 shadow-2xs"
             >
               <span>Dept: {d.split(' ')[0]}</span>
               <button onClick={() => handleDeptToggle(d)} className="hover:text-red-500 cursor-pointer">
@@ -359,7 +359,7 @@ export function FilterBar() {
           {filterState.primaryReason.map((r) => (
             <span
               key={r}
-              className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-amber-50 dark:bg-amber-950/50 text-amber-700 dark:text-amber-300 border border-amber-200/80 dark:border-amber-800/60 shadow-2xs"
+              className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-amber-50 text-amber-700 border border-amber-200/80 shadow-2xs"
             >
               <span>Reason: {r.slice(0, 15)}...</span>
               <button onClick={() => handleReasonToggle(r)} className="hover:text-red-500 cursor-pointer">
@@ -369,7 +369,7 @@ export function FilterBar() {
           ))}
 
           {filterState.dateRange.preset !== 'ALL' && (
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 shadow-2xs">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-slate-100 text-slate-700 border border-slate-200 shadow-2xs">
               <span>Period: {filterState.dateRange.preset}</span>
               <button onClick={() => handleDatePreset('ALL')} className="hover:text-red-500 cursor-pointer">
                 <X className="w-3 h-3" />

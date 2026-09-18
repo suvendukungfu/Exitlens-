@@ -15,8 +15,6 @@ import {
   ShieldCheck,
   FileBarChart,
   Settings,
-  Sun,
-  Moon,
   Database,
   Menu,
   X,
@@ -69,27 +67,27 @@ function NavLinkItem({
     <Link
       href={item.href}
       onClick={onNavigate}
-      className={`group relative flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-medium transition-all duration-200 ${
+      className={`group relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all duration-150 ${
         isActive
-          ? 'bg-blue-50/90 text-blue-700 font-semibold shadow-xs dark:bg-blue-950/50 dark:text-blue-400 dark:border-blue-900/40'
-          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-800/50'
+          ? 'bg-blue-50 text-blue-700 font-semibold shadow-xs'
+          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
       }`}
     >
       {/* Active Left Indicator Pill */}
       {isActive && (
-        <span className="absolute left-0 top-1.5 bottom-1.5 w-1 rounded-r-full bg-blue-600 dark:bg-blue-400 shadow-sm shadow-blue-500/50" />
+        <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r-full bg-blue-600 shadow-sm shadow-blue-500/50" />
       )}
       
       <Icon
-        className={`w-4 h-4 shrink-0 transition-transform duration-200 group-hover:scale-105 ${
+        className={`w-4 h-4 shrink-0 transition-transform duration-150 group-hover:scale-105 ${
           isActive
-            ? 'text-blue-600 dark:text-blue-400'
-            : 'text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300'
+            ? 'text-blue-600'
+            : 'text-slate-400 group-hover:text-slate-600'
         }`}
       />
       <span className="truncate tracking-tight">{item.name}</span>
       {item.badge && (
-        <span className="ml-auto text-[10px] px-1.5 py-0.5 rounded-full bg-slate-200/70 dark:bg-slate-800 font-mono text-slate-600 dark:text-slate-400">
+        <span className="ml-auto text-[10px] px-1.5 py-0.5 rounded-full bg-slate-100 font-mono text-slate-600 font-medium">
           {item.badge}
         </span>
       )}
@@ -103,8 +101,6 @@ function SidebarView({
   recordsCount,
   loadDemoData,
   clearData,
-  theme,
-  toggleTheme,
   onCloseMobile,
 }: {
   pathname: string;
@@ -112,29 +108,29 @@ function SidebarView({
   recordsCount: number;
   loadDemoData: () => void;
   clearData: () => void;
-  theme: 'light' | 'dark';
-  toggleTheme: () => void;
+  theme?: 'light' | 'dark';
+  toggleTheme?: () => void;
   onCloseMobile?: () => void;
 }) {
   return (
-    <div className="flex flex-col h-full select-none bg-white/95 dark:bg-[#0b0f19]/95 backdrop-blur-xl border-r border-slate-200/80 dark:border-slate-800/80 transition-colors">
+    <div className="flex flex-col h-full select-none bg-white border-r border-slate-200/90 shadow-[1px_0_16px_rgba(15,23,42,0.03)] transition-colors">
       {/* Brand Header */}
-      <div className="p-4 border-b border-slate-200/70 dark:border-slate-800/70">
+      <div className="p-4 border-b border-slate-200/80">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 rounded-xl bg-linear-to-tr from-blue-600 via-indigo-600 to-sky-500 flex items-center justify-center text-white font-bold text-xs shadow-md shadow-blue-500/25 ring-1 ring-white/20 transition-transform duration-200 group-hover:scale-105">
+            <div className="w-8 h-8 rounded-xl bg-linear-to-tr from-blue-600 via-indigo-600 to-sky-500 flex items-center justify-center text-white font-bold text-xs shadow-sm shadow-blue-500/25 ring-1 ring-blue-500/20 transition-transform duration-200 group-hover:scale-105">
               EL
             </div>
             <div>
               <div className="flex items-center gap-1.5">
-                <span className="text-sm font-bold tracking-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <span className="text-sm font-bold tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
                   EXITLENS
                 </span>
-                <span className="text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded-md bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-bold border border-blue-200/50 dark:border-blue-900/40">
+                <span className="text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded-md bg-blue-50 text-blue-700 font-bold border border-blue-200/60">
                   v2.1
                 </span>
               </div>
-              <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+              <p className="text-[11px] text-slate-500 font-medium">
                 Exit Intelligence Suite
               </p>
             </div>
@@ -142,15 +138,15 @@ function SidebarView({
           {onCloseMobile && (
             <button
               onClick={onCloseMobile}
-              className="md:hidden p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 dark:hover:text-slate-200 dark:hover:bg-slate-800 transition-colors"
+              className="md:hidden p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
           )}
         </div>
-        <div className="mt-3 flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-slate-50/80 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-800/60">
-          <Factory className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 shrink-0" />
-          <span className="text-[11px] font-medium text-slate-700 dark:text-slate-300 truncate">
+        <div className="mt-3 flex items-center gap-2 px-2.5 py-1.5 rounded-xl bg-slate-50 border border-slate-200/80">
+          <Factory className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+          <span className="text-[11px] font-semibold text-slate-700 truncate">
             Steel Strips Wheels Ltd.
           </span>
         </div>
@@ -159,35 +155,35 @@ function SidebarView({
       {/* Mode Status Pill */}
       <div className="px-3 pt-3">
         {isDemoData ? (
-          <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-amber-500/10 dark:bg-amber-500/10 border border-amber-500/20 text-amber-900 dark:text-amber-300 text-[11px] backdrop-blur-xs">
+          <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-amber-50/80 border border-amber-200/80 text-amber-900 text-[11px]">
             <div className="flex items-center gap-2 font-medium">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
               </span>
-              <span>Demo Dataset Active</span>
+              <span className="font-semibold">Demo Dataset Active</span>
             </div>
             <button
               onClick={clearData}
               title="Clear Demo Data"
-              className="text-amber-700 dark:text-amber-400 hover:text-amber-950 dark:hover:text-amber-200 text-[10px] font-semibold underline underline-offset-2 transition-colors cursor-pointer"
+              className="text-amber-700 hover:text-amber-950 text-[10px] font-bold underline underline-offset-2 transition-colors cursor-pointer"
             >
               Clear
             </button>
           </div>
         ) : (
-          <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/10 border border-emerald-500/20 text-emerald-900 dark:text-emerald-300 text-[11px] backdrop-blur-xs">
+          <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-emerald-50/80 border border-emerald-200/80 text-emerald-900 text-[11px]">
             <div className="flex items-center gap-2 font-medium">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span>Live Dataset ({recordsCount})</span>
+              <span className="font-semibold">Live Dataset ({recordsCount})</span>
             </div>
             <button
               onClick={loadDemoData}
               title="Load Demo Data"
-              className="text-emerald-700 dark:text-emerald-400 hover:text-emerald-950 dark:hover:text-emerald-200 text-[10px] font-semibold underline underline-offset-2 transition-colors cursor-pointer"
+              className="text-emerald-700 hover:text-emerald-950 text-[10px] font-bold underline underline-offset-2 transition-colors cursor-pointer"
             >
               Load Demo
             </button>
@@ -199,7 +195,7 @@ function SidebarView({
       <div className="flex-1 px-3 py-3 overflow-y-auto space-y-4">
         {/* Core Analytics */}
         <div>
-          <div className="px-2 pb-1.5 text-[10px] font-bold tracking-wider text-slate-400 dark:text-slate-500 uppercase">
+          <div className="px-2 pb-1.5 text-[10px] font-bold tracking-wider text-slate-400 uppercase">
             Exit Analytics
           </div>
           <div className="space-y-0.5">
@@ -216,7 +212,7 @@ function SidebarView({
 
         {/* Data Operations */}
         <div>
-          <div className="px-2 pb-1.5 text-[10px] font-bold tracking-wider text-slate-400 dark:text-slate-500 uppercase">
+          <div className="px-2 pb-1.5 text-[10px] font-bold tracking-wider text-slate-400 uppercase">
             Data Operations
           </div>
           <div className="space-y-0.5">
@@ -233,7 +229,7 @@ function SidebarView({
 
         {/* Administration */}
         <div>
-          <div className="px-2 pb-1.5 text-[10px] font-bold tracking-wider text-slate-400 dark:text-slate-500 uppercase">
+          <div className="px-2 pb-1.5 text-[10px] font-bold tracking-wider text-slate-400 uppercase">
             Administration
           </div>
           <div className="space-y-0.5">
@@ -250,27 +246,14 @@ function SidebarView({
       </div>
 
       {/* Footer Utility Bar */}
-      <div className="p-3 border-t border-slate-200/70 dark:border-slate-800/70 flex items-center justify-between bg-slate-50/50 dark:bg-slate-900/40">
-        <button
-          onClick={toggleTheme}
-          className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs text-slate-600 dark:text-slate-400 hover:bg-slate-200/70 dark:hover:bg-slate-800/80 transition-all cursor-pointer"
-          title={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
-        >
-          {theme === 'light' ? (
-            <>
-              <Moon className="w-3.5 h-3.5 text-slate-500" />
-              <span className="text-[11px] font-medium">Dark Mode</span>
-            </>
-          ) : (
-            <>
-              <Sun className="w-3.5 h-3.5 text-amber-400" />
-              <span className="text-[11px] font-medium">Light Mode</span>
-            </>
-          )}
-        </button>
+      <div className="p-3.5 border-t border-slate-200/80 flex items-center justify-between bg-slate-50/60 text-xs">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <span className="text-[11px] font-semibold text-slate-700">Production Ready</span>
+        </div>
 
-        <div className="flex items-center gap-1.5 text-[10px] font-mono text-slate-400 dark:text-slate-500">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+        <div className="flex items-center gap-1.5 text-[10px] font-mono text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200">
+          <Shield className="w-3 h-3 text-slate-500" />
           <span>PG 14+</span>
         </div>
       </div>
@@ -286,21 +269,21 @@ export function AppSidebar() {
   return (
     <>
       {/* Mobile Menu Trigger Header */}
-      <div className="md:hidden no-print flex items-center justify-between px-4 py-3 bg-white/90 dark:bg-[#0b0f19]/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 sticky top-0 z-30">
+      <div className="md:hidden no-print flex items-center justify-between px-4 py-3 bg-white/95 backdrop-blur-md border-b border-slate-200/80 sticky top-0 z-30">
         <div className="flex items-center gap-2.5">
           <div className="w-7 h-7 rounded-lg bg-linear-to-tr from-blue-600 to-sky-500 flex items-center justify-center text-white font-bold text-xs shadow-xs">
             EL
           </div>
-          <span className="font-bold text-sm tracking-tight text-slate-900 dark:text-white">
+          <span className="font-bold text-sm tracking-tight text-slate-900">
             EXITLENS
           </span>
-          <span className="text-[10px] text-slate-500 dark:text-slate-400">
+          <span className="text-[10px] text-slate-500">
             Steel Strips Wheels
           </span>
         </div>
         <button
           onClick={() => setMobileOpen(true)}
-          className="p-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+          className="p-1.5 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
           aria-label="Open Navigation Menu"
         >
           <Menu className="w-5 h-5" />
@@ -310,7 +293,7 @@ export function AppSidebar() {
       {/* Mobile Drawer Backdrop */}
       {mobileOpen && (
         <div
-          className="md:hidden fixed inset-0 z-40 bg-black/60 backdrop-blur-xs transition-opacity duration-200"
+          className="md:hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-xs transition-opacity duration-200"
           onClick={() => setMobileOpen(false)}
         />
       )}
