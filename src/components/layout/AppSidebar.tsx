@@ -155,35 +155,29 @@ function SidebarView({
       {/* Mode Status Pill */}
       <div className="px-3 pt-3">
         {isDemoData ? (
-          <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-amber-50/80 border border-amber-200/80 text-amber-900 text-[11px]">
+          <div className="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-amber-50/90 border border-amber-200/70 text-amber-900 text-[11px]">
             <div className="flex items-center gap-2 font-medium">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
-              </span>
-              <span className="font-semibold">Demo Dataset Active</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0" />
+              <span className="font-medium text-amber-900">Demo Dataset Active</span>
             </div>
             <button
               onClick={clearData}
               title="Clear Demo Data"
-              className="text-amber-700 hover:text-amber-950 text-[10px] font-bold underline underline-offset-2 transition-colors cursor-pointer"
+              className="text-amber-800 hover:text-amber-950 text-[10px] font-semibold underline underline-offset-2 transition-colors cursor-pointer"
             >
               Clear
             </button>
           </div>
         ) : (
-          <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-emerald-50/80 border border-emerald-200/80 text-emerald-900 text-[11px]">
+          <div className="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-emerald-50/90 border border-emerald-200/70 text-emerald-900 text-[11px]">
             <div className="flex items-center gap-2 font-medium">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span className="font-semibold">Live Dataset ({recordsCount})</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+              <span className="font-medium text-emerald-900">Live Dataset ({recordsCount})</span>
             </div>
             <button
               onClick={loadDemoData}
               title="Load Demo Data"
-              className="text-emerald-700 hover:text-emerald-950 text-[10px] font-bold underline underline-offset-2 transition-colors cursor-pointer"
+              className="text-emerald-800 hover:text-emerald-950 text-[10px] font-semibold underline underline-offset-2 transition-colors cursor-pointer"
             >
               Load Demo
             </button>
@@ -248,8 +242,8 @@ function SidebarView({
       {/* Footer Utility Bar */}
       <div className="p-3.5 border-t border-slate-200/80 flex items-center justify-between bg-slate-50/60 text-xs">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span className="text-[11px] font-semibold text-slate-700">Production Ready</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+          <span className="text-[11px] font-medium text-slate-600">Production Ready</span>
         </div>
 
         <div className="flex items-center gap-1.5 text-[10px] font-mono text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200">

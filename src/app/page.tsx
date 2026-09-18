@@ -9,7 +9,7 @@ import {
   Percent,
   ArrowRight,
   TrendingUp,
-  Sparkles,
+  Info,
   ShieldCheck,
 } from 'lucide-react';
 import { useExitData } from '@/lib/store/ExitDataContext';
@@ -155,24 +155,21 @@ export default function OverviewPage() {
         {/* Bottom Section: Analytical Observations & Data Quality Summary */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Key Observations (strictly calculated) */}
-          <div className="lg:col-span-2 relative bg-white border border-slate-200/90 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] hover:border-slate-300 transition-all duration-200 overflow-hidden">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-blue-600 via-indigo-600 to-sky-400" />
-            <div className="flex items-center gap-2.5 mb-2">
-              <div className="w-7 h-7 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-600">
-                <Sparkles className="w-4 h-4" />
-              </div>
+          <div className="lg:col-span-2 bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs transition-colors">
+            <div className="flex items-center gap-2 mb-1.5">
+              <Info className="w-4 h-4 text-slate-400" />
               <h3 className="text-sm font-bold text-slate-900 tracking-tight">
                 Calculated Empirical Observations
               </h3>
             </div>
-            <p className="text-xs text-slate-500 mb-4">
+            <p className="text-xs text-slate-500 mb-3.5">
               Observations derived strictly from current filtered dataset calculations without speculative assumptions:
             </p>
 
-            <ul className="space-y-3 text-xs text-slate-700">
+            <ul className="space-y-2.5 text-xs text-slate-700">
               {observations.map((obs, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200/60">
-                  <span className="w-2 h-2 rounded-full bg-blue-600 mt-1.5 shrink-0 shadow-xs shadow-blue-500/50" />
+                <li key={idx} className="flex items-start gap-2.5 p-3 rounded-lg bg-slate-50 border border-slate-200/70">
+                  <span className="w-1.5 h-1.5 rounded-full bg-slate-400 mt-1.5 shrink-0" />
                   <span className="leading-relaxed font-medium text-slate-800">{obs}</span>
                 </li>
               ))}
@@ -180,16 +177,16 @@ export default function OverviewPage() {
           </div>
 
           {/* Data Quality Health & Quick Links */}
-          <div className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] hover:border-slate-300 transition-all duration-200 flex flex-col justify-between">
+          <div className="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-emerald-500" />
+                  <ShieldCheck className="w-4 h-4 text-slate-400" />
                   <h3 className="text-sm font-bold text-slate-900 tracking-tight">
                     Data Health Score
                   </h3>
                 </div>
-                <span className="text-xs font-mono font-bold text-emerald-600 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/25">
+                <span className="text-xs font-mono font-medium text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200/70">
                   {dataQualityScore}%
                 </span>
               </div>
@@ -197,9 +194,9 @@ export default function OverviewPage() {
                 Completeness of mandatory employee fields across active records.
               </p>
 
-              <div className="mt-4 w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+              <div className="mt-4 w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
                 <div
-                  className="bg-linear-to-r from-emerald-500 to-teal-400 h-2 rounded-full transition-all duration-500 shadow-xs shadow-emerald-500/50"
+                  className="bg-emerald-500 h-1.5 rounded-full transition-all duration-500"
                   style={{ width: `${dataQualityScore}%` }}
                 />
               </div>

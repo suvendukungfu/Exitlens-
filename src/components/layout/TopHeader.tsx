@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { RefreshCw, Download, Calendar, UserCheck, ChevronDown, Shield, Factory, Eye, UserCog, Sparkles, Check } from 'lucide-react';
+import { RefreshCw, Download, Calendar, UserCheck, ChevronDown, Shield, Factory, Eye, UserCog, Check } from 'lucide-react';
 import { useExitData } from '@/lib/store/ExitDataContext';
 import { useDevAuth } from '@/lib/auth/DevAuthContext';
 import { exportExitRecordsToExcel } from '@/lib/excel/exporter';
@@ -54,14 +54,14 @@ export function TopHeader({ title, subtitle, actionButton }: TopHeaderProps) {
               {title}
             </h1>
             {isDemoData && (
-              <span className="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-800 border border-amber-500/25">
-                <Sparkles className="w-3 h-3 text-amber-500" />
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-medium px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 border border-amber-200/70">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0" />
                 Demo Dataset
               </span>
             )}
             {currentUser.role === 'PLANT_HR' && (
-              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200/60 flex items-center gap-1">
-                <Factory className="w-3 h-3" />
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-medium px-2 py-0.5 rounded-md bg-slate-50 text-slate-700 border border-slate-200">
+                <Factory className="w-3 h-3 text-slate-500" />
                 <span>Restricted: {currentUser.assignedPlant} Plant</span>
               </span>
             )}
@@ -72,15 +72,15 @@ export function TopHeader({ title, subtitle, actionButton }: TopHeaderProps) {
         </div>
 
         {/* Action Controls & Persona Switcher */}
-        <div className="flex items-center gap-2.5 flex-wrap">
+        <div className="flex items-center gap-2 flex-wrap">
           {/* Active User Persona Badge & Quick Switcher */}
           <div className="relative">
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="group flex items-center gap-2.5 px-3 py-1.5 rounded-xl border border-slate-200/90 bg-white hover:border-slate-300 transition-all shadow-xs text-left cursor-pointer"
+              className="group flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white hover:border-slate-300 transition-all shadow-xs text-left cursor-pointer"
               title="Switch user role persona for testing"
             >
-              <div className="w-6 h-6 rounded-full bg-blue-50 border border-blue-200/60 flex items-center justify-center shrink-0">
+              <div className="w-5 h-5 rounded-md bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0">
                 {getRoleIcon(currentUser.role)}
               </div>
               <div className="text-[11px] leading-tight pr-0.5">
@@ -100,7 +100,7 @@ export function TopHeader({ title, subtitle, actionButton }: TopHeaderProps) {
                   className="fixed inset-0 z-40"
                   onClick={() => setDropdownOpen(false)}
                 />
-                <div className="absolute right-0 mt-2 w-80 bg-white/95 backdrop-blur-xl border border-slate-200 rounded-2xl shadow-xl py-2 z-50 text-xs animate-in fade-in zoom-in-95 duration-150">
+                <div className="absolute right-0 mt-2 w-80 bg-white/95 backdrop-blur-xl border border-slate-200 rounded-xl shadow-lg py-1.5 z-50 text-xs animate-in fade-in zoom-in-95 duration-150">
                   <div className="px-3.5 py-2 border-b border-slate-100">
                     <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
                       Enterprise Role Simulation
@@ -120,13 +120,13 @@ export function TopHeader({ title, subtitle, actionButton }: TopHeaderProps) {
                             switchPersona(p.id);
                             setDropdownOpen(false);
                           }}
-                          className={`w-full text-left px-3 py-2 rounded-xl flex items-center gap-3 transition-colors cursor-pointer ${
+                          className={`w-full text-left px-3 py-2 rounded-lg flex items-center gap-3 transition-colors cursor-pointer ${
                             isSelected
                               ? 'bg-blue-50 text-blue-900 font-semibold'
                               : 'hover:bg-slate-50 text-slate-700'
                           }`}
                         >
-                          <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center shrink-0">
+                          <div className="w-6 h-6 rounded bg-slate-100 flex items-center justify-center shrink-0">
                             {getRoleIcon(p.role)}
                           </div>
                           <div className="flex-1 min-w-0">
@@ -147,7 +147,7 @@ export function TopHeader({ title, subtitle, actionButton }: TopHeaderProps) {
             )}
           </div>
 
-          <div className="hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-slate-600 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200/80">
+          <div className="hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-slate-600 bg-slate-50 px-2.5 py-1.5 rounded-lg border border-slate-200">
             <Calendar className="w-3.5 h-3.5 text-slate-400" />
             <span className="font-semibold text-slate-800">{filteredRecords.length}</span>
             <span className="text-slate-400">/</span>
@@ -157,7 +157,7 @@ export function TopHeader({ title, subtitle, actionButton }: TopHeaderProps) {
           <button
             onClick={resetFilters}
             title="Reset active filters"
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 transition-all shadow-xs cursor-pointer active:scale-98"
+            className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-slate-700 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 transition-all shadow-xs cursor-pointer active:scale-98"
           >
             <RefreshCw className="w-3.5 h-3.5 text-slate-500" />
             <span>Reset</span>
@@ -165,7 +165,7 @@ export function TopHeader({ title, subtitle, actionButton }: TopHeaderProps) {
 
           <button
             onClick={handleExport}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-white bg-linear-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-xl transition-all shadow-sm shadow-blue-500/20 active:scale-98 cursor-pointer ring-1 ring-blue-500/20"
+            className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-all shadow-xs active:scale-98 cursor-pointer"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Export Excel</span>
