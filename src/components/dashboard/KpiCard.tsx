@@ -44,13 +44,13 @@ export function KpiCard({
   }[badgeType];
 
   return (
-    <div className="group relative bg-white/90 dark:bg-[#0e1422]/90 backdrop-blur-md border border-slate-200/80 dark:border-slate-800/80 rounded-xl p-4.5 shadow-2xs hover:shadow-xl hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200 hover:-translate-y-0.5 overflow-hidden flex flex-col justify-between">
+    <div className="group relative bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-5 shadow-[0_4px_16px_rgba(15,23,42,0.04)] hover:shadow-[0_8px_24px_rgba(15,23,42,0.08)] hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200 hover:-translate-y-0.5 overflow-hidden flex flex-col justify-between min-h-[160px]">
       {/* Top Subtle Gradient Edge Highlight */}
-      <div className={`absolute top-0 inset-x-0 h-0.75 bg-linear-to-r ${topBorderGlow} opacity-80 group-hover:opacity-100 transition-opacity`} />
+      <div className={`absolute top-0 inset-x-0 h-1 bg-gradient-to-r ${topBorderGlow} opacity-90 group-hover:opacity-100 transition-opacity`} />
 
       <div>
         <div className="flex items-center justify-between gap-2">
-          <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+          <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider line-clamp-1" title={label}>
             {label}
           </span>
           {Icon && (
@@ -61,7 +61,7 @@ export function KpiCard({
         </div>
 
         <div className="mt-3 flex items-baseline gap-2.5 flex-wrap">
-          <span className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white tabular-nums">
+          <span className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white tabular-nums">
             {value}
           </span>
           {badge && (
@@ -72,15 +72,15 @@ export function KpiCard({
         </div>
 
         {subtitle && (
-          <p className="mt-1 text-xs text-slate-600 dark:text-slate-300 font-medium leading-relaxed">
+          <p className="mt-1.5 text-xs text-slate-600 dark:text-slate-300 font-medium leading-relaxed truncate" title={subtitle}>
             {subtitle}
           </p>
         )}
       </div>
 
       {helperText && (
-        <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-800/70">
-          <p className="text-[10.5px] text-slate-400 dark:text-slate-500 font-normal leading-tight">
+        <div className="mt-3.5 pt-2.5 border-t border-slate-100 dark:border-slate-800/70">
+          <p className="text-[10.5px] text-slate-400 dark:text-slate-500 font-normal leading-tight truncate" title={helperText}>
             {helperText}
           </p>
         </div>

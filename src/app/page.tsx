@@ -155,8 +155,8 @@ export default function OverviewPage() {
         {/* Bottom Section: Analytical Observations & Data Quality Summary */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Key Observations (strictly calculated) */}
-          <div className="lg:col-span-2 relative bg-white/90 dark:bg-[#0e1422]/90 backdrop-blur-md border border-slate-200/80 dark:border-slate-800/80 rounded-xl p-6 shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200 overflow-hidden">
-            <div className="absolute top-0 left-0 right-0 h-0.75 bg-linear-to-r from-blue-600 via-indigo-600 to-sky-400" />
+          <div className="lg:col-span-2 relative bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200 overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-400" />
             <div className="flex items-center gap-2.5 mb-2">
               <div className="w-7 h-7 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400">
                 <Sparkles className="w-4 h-4" />
@@ -171,16 +171,16 @@ export default function OverviewPage() {
 
             <ul className="space-y-3 text-xs text-slate-700 dark:text-slate-300">
               {observations.map((obs, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 p-2.5 rounded-lg bg-slate-50/70 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-800/50">
+                <li key={idx} className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200/60 dark:border-slate-800/60">
                   <span className="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400 mt-1.5 shrink-0 shadow-xs shadow-blue-500/50" />
-                  <span className="leading-relaxed">{obs}</span>
+                  <span className="leading-relaxed font-medium text-slate-800 dark:text-slate-200">{obs}</span>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Data Quality Health & Quick Links */}
-          <div className="bg-white/90 dark:bg-[#0e1422]/90 backdrop-blur-md border border-slate-200/80 dark:border-slate-800/80 rounded-xl p-6 shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200 flex flex-col justify-between">
+          <div className="bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">

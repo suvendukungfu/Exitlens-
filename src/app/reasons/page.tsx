@@ -37,16 +37,16 @@ function ReasonCustomTooltip({ active, payload, label }: CustomTooltipProps) {
   const entry = payload[0];
   const pct = entry.payload?.percentage;
   return (
-    <div className="bg-slate-950/90 border border-slate-800 rounded-xl p-3 shadow-2xl backdrop-blur-md min-w-42.5">
-      <p className="text-xs font-semibold text-slate-300 mb-1.5 border-b border-slate-800 pb-1">{label || entry.name}</p>
+    <div className="bg-white/95 dark:bg-[#0b0f19]/95 backdrop-blur-xl border border-slate-200 dark:border-slate-700/60 rounded-xl shadow-xl p-3 text-xs text-slate-800 dark:text-slate-100 min-w-42.5">
+      <p className="text-xs font-bold text-slate-900 dark:text-slate-100 mb-1.5 border-b border-slate-100 dark:border-slate-800 pb-1">{label || entry.name}</p>
       <div className="flex items-center justify-between text-xs gap-3">
-        <span className="text-slate-400">Recorded Exits:</span>
-        <span className="font-semibold text-white font-mono">{entry.value}</span>
+        <span className="text-slate-500 dark:text-slate-400">Recorded Exits:</span>
+        <span className="font-semibold text-slate-900 dark:text-white font-mono">{entry.value}</span>
       </div>
       {pct !== undefined && (
         <div className="flex items-center justify-between text-xs gap-3 mt-1">
-          <span className="text-slate-400">Share:</span>
-          <span className="font-medium text-teal-400 font-mono">{pct}%</span>
+          <span className="text-slate-500 dark:text-slate-400">Share:</span>
+          <span className="font-medium text-teal-600 dark:text-teal-400 font-mono">{pct}%</span>
         </div>
       )}
     </div>
@@ -123,11 +123,11 @@ export default function ReasonsPage() {
             subtitle="Rank-ordered distribution across all 15 standardized taxonomy categories"
           />
 
-          <div className="bg-slate-900/60 border border-slate-800/80 backdrop-blur-md rounded-xl p-6 shadow-xl relative overflow-hidden">
-            <h3 className="text-sm font-semibold text-white mb-1">
+          <div className="bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] relative overflow-hidden">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
               Secondary Contributing Drivers
             </h3>
-            <p className="text-xs text-slate-400 mb-5">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mb-5">
               Specific contextual catalysts cited during HR exit discussions
             </p>
 
@@ -161,16 +161,16 @@ export default function ReasonsPage() {
         <ReasonCompositionChart data={monthlyComposition} />
 
         {/* Verbatim Exit Records & Comments Table */}
-        <div className="bg-slate-900/60 border border-slate-800/80 backdrop-blur-md rounded-xl p-6 shadow-xl space-y-5 relative overflow-hidden">
+        <div className="bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] space-y-5 relative overflow-hidden">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-              <h3 className="text-sm font-semibold text-white flex items-center gap-2.5">
-                <div className="p-1.5 rounded-md bg-blue-500/10 border border-blue-500/20">
-                  <FileText className="w-4 h-4 text-blue-400" />
+              <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                <div className="p-1.5 rounded-lg bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20">
+                  <FileText className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                 </div>
                 <span>Verbatim Exit Comments & Details Register</span>
               </h3>
-              <p className="text-xs text-slate-400 mt-1">
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                 Preserving original employee feedback notes alongside standardized categorization
               </p>
             </div>
@@ -180,7 +180,7 @@ export default function ReasonsPage() {
               <select
                 value={selectedReasonFilter}
                 onChange={(e) => setSelectedReasonFilter(e.target.value)}
-                className="bg-slate-950/80 border border-slate-800 rounded-lg px-3 py-1.5 text-slate-200 focus:outline-hidden focus:ring-1 focus:ring-blue-500 shadow-inner"
+                className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-3 py-1.5 text-slate-800 dark:text-slate-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500/20 shadow-2xs"
               >
                 <option value="ALL">All Categories ({filteredRecords.length})</option>
                 {primaryReasons.map((r) => (
@@ -197,15 +197,15 @@ export default function ReasonsPage() {
                   placeholder="Search comments..."
                   value={tableSearch}
                   onChange={(e) => setTableSearch(e.target.value)}
-                  className="pl-9 pr-3 py-1.5 text-xs rounded-lg bg-slate-950/80 border border-slate-800 text-slate-100 placeholder-slate-500 focus:outline-hidden focus:ring-1 focus:ring-blue-500 shadow-inner"
+                  className="pl-9 pr-3 py-1.5 text-xs rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-blue-500/20 shadow-2xs"
                 />
               </div>
             </div>
           </div>
 
-          <div className="overflow-x-auto border border-slate-800/80 rounded-lg">
+          <div className="overflow-x-auto border border-slate-200/80 dark:border-slate-800/80 rounded-xl">
             <table className="w-full text-xs text-left border-collapse">
-              <thead className="bg-slate-950/80 text-slate-400 border-b border-slate-800/80">
+              <thead className="bg-slate-50 dark:bg-slate-900/80 text-slate-600 dark:text-slate-400 border-b border-slate-200/80 dark:border-slate-800/80">
                 <tr>
                   <th className="p-3.5 font-semibold w-28">Emp ID</th>
                   <th className="p-3.5 font-semibold w-44">Primary Reason</th>
@@ -215,32 +215,32 @@ export default function ReasonsPage() {
                   <th className="p-3.5 font-semibold w-32">Plant</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60">
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60">
                 {verbatimRecords.length === 0 ? (
                   <tr>
-                    <td colSpan={6} className="p-8 text-center text-slate-400">
+                    <td colSpan={6} className="p-8 text-center text-slate-500 dark:text-slate-400">
                       No verbatim exit records match the selected category and search term.
                     </td>
                   </tr>
                 ) : (
                   verbatimRecords.slice(0, 15).map((rec) => (
-                    <tr key={rec.id} className="hover:bg-slate-800/40 transition-colors">
-                      <td className="p-3.5 font-mono font-medium text-blue-400">
+                    <tr key={rec.id} className="hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition-colors">
+                      <td className="p-3.5 font-mono font-semibold text-blue-600 dark:text-blue-400">
                         {rec.employeeId}
                       </td>
-                      <td className="p-3.5 font-medium text-white">
+                      <td className="p-3.5 font-semibold text-slate-900 dark:text-white">
                         {rec.primaryReason}
                       </td>
-                      <td className="p-3.5 text-slate-300">
+                      <td className="p-3.5 text-slate-600 dark:text-slate-300">
                         {rec.secondaryReason || '—'}
                       </td>
-                      <td className="p-3.5 text-slate-300 italic font-sans leading-relaxed">
+                      <td className="p-3.5 text-slate-700 dark:text-slate-300 italic font-sans leading-relaxed">
                         &ldquo;{rec.detailedReason || 'No detailed remarks recorded'}&rdquo;
                       </td>
-                      <td className="p-3.5 text-slate-400">
+                      <td className="p-3.5 text-slate-600 dark:text-slate-400">
                         {rec.department}
                       </td>
-                      <td className="p-3.5 text-slate-400">
+                      <td className="p-3.5 text-slate-600 dark:text-slate-400">
                         {rec.plant.split(' ')[0]}
                       </td>
                     </tr>
@@ -250,9 +250,9 @@ export default function ReasonsPage() {
             </table>
           </div>
 
-          <div className="flex justify-between items-center text-[11px] text-slate-400 pt-1">
+          <div className="flex justify-between items-center text-[11px] text-slate-500 dark:text-slate-400 pt-1">
             <span>Displaying up to 15 verbatim entries matching criteria</span>
-            <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-amber-400/80" />Confidential HR Records</span>
+            <span className="flex items-center gap-1.5 font-medium"><span className="w-1.5 h-1.5 rounded-full bg-amber-500" />Confidential HR Records</span>
           </div>
         </div>
       </div>

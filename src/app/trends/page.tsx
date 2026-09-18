@@ -34,16 +34,16 @@ interface CustomTooltipProps {
 function TrendsCustomTooltip({ active, payload, label }: CustomTooltipProps) {
   if (!active || !payload || !payload.length) return null;
   return (
-    <div className="bg-slate-950/90 border border-slate-800 rounded-xl p-3 shadow-2xl backdrop-blur-md min-w-45">
-      <p className="text-xs font-semibold text-slate-300 mb-2 border-b border-slate-800 pb-1.5">{label}</p>
+    <div className="bg-white/95 dark:bg-[#0b0f19]/95 backdrop-blur-xl border border-slate-200 dark:border-slate-700/60 rounded-xl shadow-xl p-3 text-xs text-slate-800 dark:text-slate-100 min-w-45">
+      <p className="text-xs font-bold text-slate-900 dark:text-slate-100 mb-2 border-b border-slate-100 dark:border-slate-800 pb-1.5">{label}</p>
       <div className="space-y-1.5">
         {payload.map((entry, idx) => (
           <div key={`tt-${idx}`} className="flex items-center justify-between text-xs gap-3">
             <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full" style={{ backgroundColor: entry.color }} />
-              <span className="text-slate-400">{entry.name}:</span>
+              <span className="text-slate-600 dark:text-slate-400 font-medium">{entry.name}:</span>
             </div>
-            <span className="font-semibold text-white font-mono">{entry.value}</span>
+            <span className="font-semibold text-slate-900 dark:text-white font-mono">{entry.value}</span>
           </div>
         ))}
       </div>
@@ -106,33 +106,33 @@ export default function TrendsPage() {
 
       <div className="p-6 max-w-7xl mx-auto space-y-6">
         {/* Aggregation Switcher Card */}
-        <div className="bg-slate-900/60 border border-slate-800/80 backdrop-blur-md rounded-xl p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 shadow-xl">
+        <div className="bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-4.5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 shadow-[0_4px_16px_rgba(15,23,42,0.04)]">
           <div>
-            <span className="text-xs font-semibold text-white block">
+            <span className="text-xs font-bold text-slate-900 dark:text-white block">
               Temporal Aggregation Granularity
             </span>
-            <p className="text-[11px] text-slate-400">
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
               Toggle between monthly intervals and quarterly roll-ups for strategic executive review.
             </p>
           </div>
 
-          <div className="flex items-center bg-slate-950/80 p-1 rounded-lg text-xs border border-slate-800/80 shadow-inner">
+          <div className="flex items-center bg-slate-100 dark:bg-slate-900 p-1 rounded-xl text-xs border border-slate-200 dark:border-slate-800">
             <button
               onClick={() => setAggregation('monthly')}
-              className={`px-3.5 py-1.5 rounded-md transition-all font-medium ${
+              className={`px-3.5 py-1.5 rounded-lg transition-all font-medium ${
                 aggregation === 'monthly'
-                  ? 'bg-blue-600 text-white shadow-md font-semibold'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-blue-600 text-white shadow-xs font-semibold'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               Monthly Series
             </button>
             <button
               onClick={() => setAggregation('quarterly')}
-              className={`px-3.5 py-1.5 rounded-md transition-all font-medium ${
+              className={`px-3.5 py-1.5 rounded-lg transition-all font-medium ${
                 aggregation === 'quarterly'
-                  ? 'bg-blue-600 text-white shadow-md font-semibold'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-blue-600 text-white shadow-xs font-semibold'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               Quarterly Rollup
@@ -141,13 +141,12 @@ export default function TrendsPage() {
         </div>
 
         {/* Chart 1: Voluntary vs Involuntary Separation Trend */}
-        <div className="bg-slate-900/60 border border-slate-800/80 backdrop-blur-md rounded-xl p-6 shadow-xl relative overflow-hidden group">
-          <div className="absolute -top-12 -right-12 w-48 h-48 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] relative overflow-hidden group">
           <div className="mb-5">
-            <h3 className="text-sm font-semibold text-white">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white">
               Voluntary Resignations vs Involuntary Terminations
             </h3>
-            <p className="text-xs text-slate-400 mt-0.5">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
               Tracking resignation spikes vs contractual completions or retirements over time
             </p>
           </div>
@@ -158,13 +157,13 @@ export default function TrendsPage() {
                 data={activeTrendData as Array<{ label: string; count: number; voluntary: number; involuntary: number }>}
                 margin={{ top: 10, right: 20, left: -10, bottom: 5 }}
               >
-                <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" strokeOpacity={0.8} className="dark:stroke-slate-800" />
                 <XAxis
                   dataKey="label"
                   stroke="#64748b"
                   fontSize={11}
                   tickLine={false}
-                  axisLine={{ stroke: '#334155' }}
+                  axisLine={{ stroke: '#cbd5e1', strokeOpacity: 0.6 }}
                 />
                 <YAxis
                   stroke="#64748b"
@@ -176,20 +175,19 @@ export default function TrendsPage() {
                 <Tooltip content={<TrendsCustomTooltip />} />
                 <Legend wrapperStyle={{ fontSize: '11px', paddingTop: '12px' }} />
                 <Bar dataKey="voluntary" name="Voluntary Resignation" fill="#3b82f6" stackId="t" radius={[0, 0, 0, 0]} />
-                <Bar dataKey="involuntary" name="Involuntary / Other" fill="#64748b" stackId="t" radius={[6, 6, 0, 0]} />
+                <Bar dataKey="involuntary" name="Involuntary / Other" fill="#94a3b8" stackId="t" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
         </div>
 
         {/* Chart 2: Plant Comparison Multi-Series Trend */}
-        <div className="bg-slate-900/60 border border-slate-800/80 backdrop-blur-md rounded-xl p-6 shadow-xl relative overflow-hidden group">
-          <div className="absolute -top-12 -right-12 w-48 h-48 bg-teal-500/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] relative overflow-hidden group">
           <div className="mb-5">
-            <h3 className="text-sm font-semibold text-white">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white">
               Multi-Plant Monthly Exit Comparison
             </h3>
-            <p className="text-xs text-slate-400 mt-0.5">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
               Comparing exit volume trajectories across Steel Strips Wheels manufacturing units
             </p>
           </div>
@@ -197,13 +195,13 @@ export default function TrendsPage() {
           <div className="h-80 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={plantMonthlyComparison} margin={{ top: 10, right: 20, left: -10, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" strokeOpacity={0.8} className="dark:stroke-slate-800" />
                 <XAxis
                   dataKey="label"
                   stroke="#64748b"
                   fontSize={11}
                   tickLine={false}
-                  axisLine={{ stroke: '#334155' }}
+                  axisLine={{ stroke: '#cbd5e1', strokeOpacity: 0.6 }}
                 />
                 <YAxis
                   stroke="#64748b"
@@ -214,21 +212,21 @@ export default function TrendsPage() {
                 />
                 <Tooltip content={<TrendsCustomTooltip />} />
                 <Legend wrapperStyle={{ fontSize: '11px', paddingTop: '12px' }} />
-                <Line type="monotone" dataKey="Dappar (Punjab)" name="Dappar" stroke="#3b82f6" strokeWidth={2.5} dot={{ r: 3.5, fill: '#3b82f6' }} activeDot={{ r: 6 }} />
-                <Line type="monotone" dataKey="Jamshedpur (Jharkhand)" name="Jamshedpur" stroke="#14b8a6" strokeWidth={2.5} dot={{ r: 3.5, fill: '#14b8a6' }} activeDot={{ r: 6 }} />
-                <Line type="monotone" dataKey="Chennai (Tamil Nadu)" name="Chennai" stroke="#f59e0b" strokeWidth={2.5} dot={{ r: 3.5, fill: '#f59e0b' }} activeDot={{ r: 6 }} />
-                <Line type="monotone" dataKey="Mehsana (Gujarat)" name="Mehsana" stroke="#8b5cf6" strokeWidth={2.5} dot={{ r: 3.5, fill: '#8b5cf6' }} activeDot={{ r: 6 }} />
-                <Line type="monotone" dataKey="Saraikela (Jharkhand)" name="Saraikela" stroke="#f43f5e" strokeWidth={2.5} dot={{ r: 3.5, fill: '#f43f5e' }} activeDot={{ r: 6 }} />
+                <Line type="monotone" dataKey="Dappar (Punjab)" name="Dappar" stroke="#3b82f6" strokeWidth={2.5} dot={{ r: 3.5, fill: '#3b82f6', strokeWidth: 1.5, stroke: '#ffffff' }} activeDot={{ r: 6 }} />
+                <Line type="monotone" dataKey="Jamshedpur (Jharkhand)" name="Jamshedpur" stroke="#14b8a6" strokeWidth={2.5} dot={{ r: 3.5, fill: '#14b8a6', strokeWidth: 1.5, stroke: '#ffffff' }} activeDot={{ r: 6 }} />
+                <Line type="monotone" dataKey="Chennai (Tamil Nadu)" name="Chennai" stroke="#f59e0b" strokeWidth={2.5} dot={{ r: 3.5, fill: '#f59e0b', strokeWidth: 1.5, stroke: '#ffffff' }} activeDot={{ r: 6 }} />
+                <Line type="monotone" dataKey="Mehsana (Gujarat)" name="Mehsana" stroke="#8b5cf6" strokeWidth={2.5} dot={{ r: 3.5, fill: '#8b5cf6', strokeWidth: 1.5, stroke: '#ffffff' }} activeDot={{ r: 6 }} />
+                <Line type="monotone" dataKey="Saraikela (Jharkhand)" name="Saraikela" stroke="#f43f5e" strokeWidth={2.5} dot={{ r: 3.5, fill: '#f43f5e', strokeWidth: 1.5, stroke: '#ffffff' }} activeDot={{ r: 6 }} />
               </LineChart>
             </ResponsiveContainer>
           </div>
         </div>
 
         {/* Methodology & Analytical Safeguards Notice */}
-        <div className="bg-slate-900/40 border border-slate-800/80 rounded-xl p-4 text-xs text-slate-400 flex items-start gap-3 backdrop-blur-sm">
-          <Info className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" />
+        <div className="bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-5 text-xs text-slate-600 dark:text-slate-400 flex items-start gap-3 shadow-[0_4px_16px_rgba(15,23,42,0.04)]">
+          <Info className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
           <div className="space-y-1">
-            <span className="font-semibold text-slate-200">
+            <span className="font-bold text-slate-900 dark:text-slate-200">
               Methodological Note on Trend Interpretation
             </span>
             <p className="leading-relaxed">

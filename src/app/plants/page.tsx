@@ -34,16 +34,16 @@ function PlantCustomTooltip({ active, payload, label }: CustomTooltipProps) {
   const entry = payload[0];
   const pct = entry.payload?.percentage;
   return (
-    <div className="bg-slate-950/90 border border-slate-800 rounded-xl p-3 shadow-2xl backdrop-blur-md min-w-42.5">
-      <p className="text-xs font-semibold text-slate-300 mb-1.5 border-b border-slate-800 pb-1">{label || entry.name}</p>
+    <div className="bg-white/95 dark:bg-[#0b0f19]/95 backdrop-blur-xl border border-slate-200 dark:border-slate-700/60 rounded-xl shadow-xl p-3 text-xs text-slate-800 dark:text-slate-100 min-w-42.5">
+      <p className="text-xs font-bold text-slate-900 dark:text-slate-100 mb-1.5 border-b border-slate-100 dark:border-slate-800 pb-1">{label || entry.name}</p>
       <div className="flex items-center justify-between text-xs gap-3">
-        <span className="text-slate-400">Recorded Exits:</span>
-        <span className="font-semibold text-white font-mono">{entry.value}</span>
+        <span className="text-slate-500 dark:text-slate-400">Recorded Exits:</span>
+        <span className="font-semibold text-slate-900 dark:text-white font-mono">{entry.value}</span>
       </div>
       {pct !== undefined && (
         <div className="flex items-center justify-between text-xs gap-3 mt-1">
-          <span className="text-slate-400">Share:</span>
-          <span className="font-medium text-blue-400 font-mono">{pct}%</span>
+          <span className="text-slate-500 dark:text-slate-400">Share:</span>
+          <span className="font-medium text-blue-600 dark:text-blue-400 font-mono">{pct}%</span>
         </div>
       )}
     </div>
@@ -122,25 +122,25 @@ export default function PlantsPage() {
               <div
                 key={plant.name}
                 onClick={() => setSelectedPlant(plant.name)}
-                className={`bg-slate-900/60 border rounded-xl p-4 cursor-pointer transition-all backdrop-blur-md shadow-xl relative overflow-hidden group ${
+                className={`bg-white dark:bg-[#0e1422] border rounded-2xl p-4.5 cursor-pointer transition-all shadow-[0_4px_16px_rgba(15,23,42,0.04)] hover:shadow-[0_8px_24px_rgba(15,23,42,0.08)] relative overflow-hidden group ${
                   isSelected
-                    ? 'border-blue-500/80 ring-2 ring-blue-500/30 bg-blue-950/30'
-                    : 'border-slate-800/80 hover:border-slate-700 hover:bg-slate-850/60'
+                    ? 'border-blue-600 ring-2 ring-blue-500/20 bg-blue-50/30 dark:bg-blue-950/20'
+                    : 'border-slate-200/90 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
                 }`}
               >
-                <div className={`absolute top-0 left-0 right-0 h-0.5 transition-opacity ${isSelected ? 'bg-linear-to-r from-blue-500 to-indigo-500 opacity-100' : 'opacity-0 group-hover:opacity-40 bg-slate-600'}`} />
-                <div className="flex items-center gap-2 text-xs text-slate-400 mb-2">
-                  <div className="p-1 rounded bg-slate-800/80 border border-slate-700/60">
-                    <MapPin className="w-3.5 h-3.5 text-blue-400" />
+                <div className={`absolute top-0 left-0 right-0 h-1 transition-opacity ${isSelected ? 'bg-gradient-to-r from-blue-600 to-indigo-600 opacity-100' : 'opacity-0 group-hover:opacity-40 bg-slate-400'}`} />
+                <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 mb-2">
+                  <div className="p-1 rounded-md bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700/60">
+                    <MapPin className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
                   </div>
-                  <span className="font-semibold text-slate-200 truncate">
+                  <span className="font-semibold text-slate-700 dark:text-slate-200 truncate">
                     {plant.name.split(' ')[0]}
                   </span>
                 </div>
-                <div className="text-2xl font-bold text-white mt-1 font-mono tracking-tight">
-                  {plant.count} <span className="text-xs font-normal text-slate-400 font-sans">exits</span>
+                <div className="text-2xl font-bold text-slate-900 dark:text-white mt-1 font-mono tracking-tight">
+                  {plant.count} <span className="text-xs font-normal text-slate-500 dark:text-slate-400 font-sans">exits</span>
                 </div>
-                <div className="mt-3 pt-2.5 border-t border-slate-800/80 flex justify-between text-[11px] text-slate-400 font-mono">
+                <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-800/80 flex justify-between text-[11px] text-slate-500 dark:text-slate-400 font-mono">
                   <span>Share: {plant.percentage}%</span>
                   <span>Avg: {plant.averageTenureYears}y</span>
                 </div>
@@ -150,33 +150,33 @@ export default function PlantsPage() {
         </div>
 
         {/* Selected Plant Overview Header */}
-        <div className="flex items-center justify-between bg-slate-900/60 border border-slate-800/80 backdrop-blur-md p-4 rounded-xl shadow-xl text-xs">
+        <div className="flex items-center justify-between bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 p-4.5 rounded-2xl shadow-[0_4px_16px_rgba(15,23,42,0.04)] text-xs">
           <div className="flex items-center gap-2.5">
-            <div className="p-1.5 rounded-md bg-blue-500/10 border border-blue-500/20">
-              <Factory className="w-4 h-4 text-blue-400" />
+            <div className="p-1.5 rounded-lg bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20">
+              <Factory className="w-4 h-4 text-blue-600 dark:text-blue-400" />
             </div>
-            <span className="font-semibold text-slate-400">
+            <span className="font-semibold text-slate-500 dark:text-slate-400">
               Selected Facility:
             </span>
-            <span className="font-bold text-blue-400 bg-blue-500/10 px-3 py-1 rounded-md border border-blue-500/20">
+            <span className="font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-500/10 px-3 py-1 rounded-md border border-blue-200 dark:border-blue-500/20">
               {selectedPlant}
             </span>
           </div>
 
-          <div className="flex items-center gap-5 text-slate-300 font-mono font-medium">
-            <span>Voluntary: <span className="text-emerald-400 font-semibold">{selectedMetrics.voluntaryPercentage}%</span></span>
-            <span>Median Tenure: <span className="text-white font-semibold">{selectedMetrics.medianTenureYears} yrs</span></span>
+          <div className="flex items-center gap-5 text-slate-600 dark:text-slate-300 font-mono font-medium">
+            <span>Voluntary: <span className="text-emerald-600 dark:text-emerald-400 font-semibold">{selectedMetrics.voluntaryPercentage}%</span></span>
+            <span>Median Tenure: <span className="text-slate-900 dark:text-white font-semibold">{selectedMetrics.medianTenureYears} yrs</span></span>
           </div>
         </div>
 
         {/* Charts Row: Department Breakdown & Employment Type within selected plant */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Department breakdown for plant */}
-          <div className="bg-slate-900/60 border border-slate-800/80 backdrop-blur-md rounded-xl p-6 shadow-xl relative overflow-hidden">
-            <h3 className="text-sm font-semibold text-white mb-1">
+          <div className="bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] relative overflow-hidden">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
               Department Breakdown at {selectedPlant.split(' ')[0]}
             </h3>
-            <p className="text-xs text-slate-400 mb-5">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mb-5">
               Functional distribution of recorded separations at this plant
             </p>
 
@@ -206,11 +206,11 @@ export default function PlantsPage() {
           </div>
 
           {/* Employment type breakdown for plant */}
-          <div className="bg-slate-900/60 border border-slate-800/80 backdrop-blur-md rounded-xl p-6 shadow-xl relative overflow-hidden">
-            <h3 className="text-sm font-semibold text-white mb-1">
+          <div className="bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] relative overflow-hidden">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
               Employment Type Mix at {selectedPlant.split(' ')[0]}
             </h3>
-            <p className="text-xs text-slate-400 mb-5">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mb-5">
               Permanent vs Contractual vs Apprentice departures
             </p>
 

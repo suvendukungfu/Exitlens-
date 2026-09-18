@@ -18,8 +18,8 @@ export function ReasonDepartmentHeatmap({
 
   if (!rows || rows.length === 0 || !columns || columns.length === 0) {
     return (
-      <div className="bg-white/90 dark:bg-[#0e1422]/90 backdrop-blur-md border border-slate-200/80 dark:border-slate-800/80 rounded-xl p-5 shadow-xs">
-        <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100">{title}</h3>
+      <div className="bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)]">
+        <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">{title}</h3>
         <div className="h-48 flex items-center justify-center text-xs text-slate-400">
           Insufficient data to compute cross-tabulation matrix.
         </div>
@@ -38,7 +38,7 @@ export function ReasonDepartmentHeatmap({
   };
 
   return (
-    <div className="bg-white/90 dark:bg-[#0e1422]/90 backdrop-blur-md border border-slate-200/80 dark:border-slate-800/80 rounded-xl p-5 shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200">
+    <div className="bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200">
       <div className="mb-4">
         <h3 className="text-sm font-bold tracking-tight text-slate-900 dark:text-white">{title}</h3>
         <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{subtitle}</p>

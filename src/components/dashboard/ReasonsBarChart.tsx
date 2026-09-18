@@ -43,13 +43,13 @@ function CustomBarTooltip({ active, payload }: CustomTooltipProps) {
   if (active && payload && payload.length) {
     const item = payload[0].payload;
     return (
-      <div className="bg-slate-900/95 dark:bg-[#0b0f19]/95 backdrop-blur-xl border border-slate-700/60 rounded-xl shadow-2xl p-3 text-xs text-white min-w-44">
-        <p className="font-bold text-slate-200 text-xs mb-1">
+      <div className="bg-white/95 dark:bg-[#0b0f19]/95 backdrop-blur-xl border border-slate-200 dark:border-slate-700/60 rounded-xl shadow-xl p-3 text-xs text-slate-800 dark:text-slate-100 min-w-44">
+        <p className="font-bold text-slate-900 dark:text-slate-100 text-xs mb-1">
           {item.name}
         </p>
-        <div className="flex items-center justify-between gap-3 pt-1 border-t border-slate-800 text-[11px]">
-          <span className="text-slate-400">Total Separations:</span>
-          <span className="font-mono font-bold text-blue-400 tabular-nums">
+        <div className="flex items-center justify-between gap-3 pt-1 border-t border-slate-100 dark:border-slate-800 text-[11px]">
+          <span className="text-slate-500 dark:text-slate-400">Total Separations:</span>
+          <span className="font-mono font-bold text-blue-600 dark:text-blue-400 tabular-nums">
             {item.count} ({item.percentage}%)
           </span>
         </div>
@@ -69,8 +69,8 @@ export function ReasonsBarChart({
 
   if (!chartData || chartData.length === 0) {
     return (
-      <div className="bg-white/90 dark:bg-[#0e1422]/90 backdrop-blur-md border border-slate-200/80 dark:border-slate-800/80 rounded-xl p-5 shadow-xs">
-        <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100">{title}</h3>
+      <div className="bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)]">
+        <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">{title}</h3>
         <div className="h-64 flex items-center justify-center text-xs text-slate-400">
           No reason data available for active filters.
         </div>
@@ -79,7 +79,7 @@ export function ReasonsBarChart({
   }
 
   return (
-    <div className="bg-white/90 dark:bg-[#0e1422]/90 backdrop-blur-md border border-slate-200/80 dark:border-slate-800/80 rounded-xl p-5 shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200">
+    <div className="bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200">
       <div className="mb-3 flex items-start justify-between">
         <div>
           <h3 className="text-sm font-bold tracking-tight text-slate-900 dark:text-white">{title}</h3>
@@ -103,10 +103,10 @@ export function ReasonsBarChart({
               dataKey="name"
               stroke="#64748b"
               fontSize={11}
-              width={140}
+              width={150}
               tickLine={false}
               axisLine={false}
-              tickFormatter={(val: string) => (val.length > 20 ? `${val.slice(0, 19)}…` : val)}
+              tickFormatter={(val: string) => (val.length > 22 ? `${val.slice(0, 21)}…` : val)}
             />
             <Tooltip content={<CustomBarTooltip />} />
             <Bar dataKey="count" radius={[0, 6, 6, 0]}>
