@@ -34,7 +34,7 @@ export function ReasonDepartmentHeatmap({
     if (ratio < 0.25) return 'bg-blue-100/80 text-blue-900 dark:bg-blue-950/70 dark:text-blue-300 font-medium border border-blue-200/40 dark:border-blue-900/40';
     if (ratio < 0.5) return 'bg-blue-200 text-blue-950 dark:bg-blue-900/80 dark:text-blue-100 font-semibold border border-blue-300/50 dark:border-blue-800/50';
     if (ratio < 0.75) return 'bg-blue-500 text-white dark:bg-blue-600 dark:text-white font-bold shadow-xs';
-    return 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold shadow-sm shadow-blue-500/20';
+    return 'bg-linear-to-r from-blue-600 to-indigo-600 text-white font-bold shadow-sm shadow-blue-500/20';
   };
 
   return (

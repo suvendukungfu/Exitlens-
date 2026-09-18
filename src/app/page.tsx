@@ -156,7 +156,7 @@ export default function OverviewPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Key Observations (strictly calculated) */}
           <div className="lg:col-span-2 relative bg-white dark:bg-[#0e1422] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200 overflow-hidden">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-400" />
+            <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-blue-600 via-indigo-600 to-sky-400" />
             <div className="flex items-center gap-2.5 mb-2">
               <div className="w-7 h-7 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400">
                 <Sparkles className="w-4 h-4" />

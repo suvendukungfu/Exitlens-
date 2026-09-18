@@ -128,7 +128,7 @@ export default function PlantsPage() {
                     : 'border-slate-200/90 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
                 }`}
               >
-                <div className={`absolute top-0 left-0 right-0 h-1 transition-opacity ${isSelected ? 'bg-gradient-to-r from-blue-600 to-indigo-600 opacity-100' : 'opacity-0 group-hover:opacity-40 bg-slate-400'}`} />
+                <div className={`absolute top-0 left-0 right-0 h-1 transition-opacity ${isSelected ? 'bg-linear-to-r from-blue-600 to-indigo-600 opacity-100' : 'opacity-0 group-hover:opacity-40 bg-slate-400'}`} />
                 <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 mb-2">
                   <div className="p-1 rounded-md bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700/60">
                     <MapPin className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />

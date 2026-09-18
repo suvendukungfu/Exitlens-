@@ -89,7 +89,7 @@ export default function ReportsPage() {
 
               <button
                 onClick={handleExportExcel}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-xs font-semibold shadow-md transition-all cursor-pointer"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-linear-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-xs font-semibold shadow-md transition-all cursor-pointer"
               >
                 <FileSpreadsheet className="w-4 h-4" />
                 <span>Export to Excel</span>
