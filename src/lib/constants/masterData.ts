@@ -1,0 +1,113 @@
+import { MasterDataConfig } from '../types';
+
+export const INITIAL_MASTER_DATA: MasterDataConfig = {
+  plants: [
+    'Dappar (Punjab)',
+    'Jamshedpur (Jharkhand)',
+    'Chennai (Tamil Nadu)',
+    'Mehsana (Gujarat)',
+    'Saraikela (Jharkhand)',
+  ],
+  departments: [
+    {
+      name: 'Production / Shop Floor',
+      subDepartments: ['Rim Line 1', 'Rim Line 2', 'Disc Press Shop', 'Assembly & Welding', 'Paint Shop', 'Surface Treatment'],
+    },
+    {
+      name: 'Quality Assurance',
+      subDepartments: ['Incoming QC', 'Line Inspection', 'Final Audit & PDI', 'Metallurgical & Testing Lab', 'QMS & Audits'],
+    },
+    {
+      name: 'Maintenance & Engineering',
+      subDepartments: ['Mechanical Maintenance', 'Electrical & PLC', 'Hydraulics & Pneumatics', 'Utility & Power House'],
+    },
+    {
+      name: 'Tool Room & Die Shop',
+      subDepartments: ['Die Maintenance', 'Tool Design & CAD', 'CNC / VMC Machining', 'Tool Stores'],
+    },
+    {
+      name: 'Supply Chain & Logistics',
+      subDepartments: ['Raw Material Stores', 'Dispatch & Shipping', 'Inbound Logistics', 'Inventory Control'],
+    },
+    {
+      name: 'R&D / Product Design',
+      subDepartments: ['Wheel Design', 'FEA & Simulation', 'Prototyping & Testing'],
+    },
+    {
+      name: 'Health, Safety & Environment (HSE)',
+      subDepartments: ['Plant Safety', 'Fire & Emergency', 'Environmental Compliance'],
+    },
+    {
+      name: 'Human Resources & Admin',
+      subDepartments: ['Talent Acquisition', 'Employee Relations & IR', 'Time Office & Payroll', 'Plant Administration'],
+    },
+    {
+      name: 'Finance, Accounts & Costing',
+      subDepartments: ['Plant Costing', 'Vendor Accounting', 'Internal Audit'],
+    },
+    {
+      name: 'Information Technology',
+      subDepartments: ['ERP / SAP Support', 'Plant Networking & OT', 'IT Infrastructure'],
+    },
+  ],
+  employmentTypes: [
+    'Permanent / On-Roll',
+    'Contract / Third-Party',
+    'Apprentice / Trainee',
+    'Probationary',
+    'Fixed-Term Contract',
+  ],
+  exitTypes: [
+    'Voluntary Resignation',
+    'Retirement',
+    'Mutual Separation',
+    'End of Contract',
+    'Involuntary Termination',
+    'Absconding / Job Abandonment',
+    'Medical Invalidation',
+  ],
+  primaryReasons: [
+    { category: 'Compensation & Benefits', description: 'Seeking higher pay, better incentives, or industry parity' },
+    { category: 'Career Growth', description: 'Lack of promotional opportunities, plateaued progression' },
+    { category: 'Work Environment', description: 'Shop floor conditions, physical fatigue, culture, or safety concerns' },
+    { category: 'Supervisor / Management', description: 'Interpersonal friction, leadership style, lack of feedback' },
+    { category: 'Workload / Shift', description: 'Rotational shifts, overtime pressure, night shift fatigue' },
+    { category: 'Relocation', description: 'Moving closer to home town / native state, spouse transfer' },
+    { category: 'Personal / Family', description: 'Family commitments, child care, parental eldercare' },
+    { category: 'Higher Education', description: 'Full-time MBA, M.Tech, diploma, or technical certification' },
+    { category: 'Health / Wellbeing', description: 'Medical conditions, physical recovery, stress management' },
+    { category: 'Retirement', description: 'Superannuation or voluntary retirement scheme (VRS)' },
+    { category: 'Contract / Temporary End', description: 'Completion of fixed contract tenure or apprenticeship term' },
+    { category: 'Attendance / Conduct', description: 'Disciplinary separation, habitual absenteeism, code of conduct' },
+    { category: 'Better Industry Opportunity', description: 'Secured offer in OEM or Tier-1 automotive sector' },
+    { category: 'Other', description: 'Miscellaneous verified reasons not fitting other categories' },
+    { category: 'Unknown / Not Disclosed', description: 'Employee exited without disclosing reason in exit interview' },
+  ],
+  secondaryReasons: [
+    'Better Salary Elsewhere',
+    'Lack of Timely Promotion',
+    'Unfavorable Shift Timings',
+    'Distance from Native Place',
+    'Health Issues of Family Member',
+    'Admitted to Higher Degree',
+    'Strained Relationship with Shift Incharge',
+    'Heavy Physical Workload',
+    'Commute / Transportation Challenges',
+    'Dissatisfaction with Annual Increment',
+    'Personal Business / Self-Employment',
+    'Relocation Post-Marriage',
+    'Completion of Apprentice Period',
+    'Disciplinary Action',
+    'Unspecified / Confidential',
+  ],
+  salaryBands: [
+    'Band A (Executive / Engineer)',
+    'Band B (Sr. Engineer / Asst. Manager)',
+    'Band C (Manager / Sr. Manager)',
+    'Band D (DGM / AGM)',
+    'Staff / Technician (Grade 1)',
+    'Staff / Technician (Grade 2)',
+    'Operator / Associate (Shop Floor)',
+    'Trainee / Apprentice',
+  ],
+};
